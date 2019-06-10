@@ -16,6 +16,12 @@ namespace ProyectoBitacorasCientificas.Models
             // Add custom user claims here
             return userIdentity;
         }
+        // Custom properties
+        public string nombre { get; set; }
+        public string primerApellido { get; set; }
+        public string segundoApellido { get; set; }
+        public string telefono { get; set; }
+        public string nickName { get; set; }
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
@@ -29,5 +35,10 @@ namespace ProyectoBitacorasCientificas.Models
         {
             return new ApplicationDbContext();
         }
+
+        public DbSet<RolesLaboratorio> RolesLaboratorio { get; set; }
+        public DbSet<NivelAcademico> NivelAcademicos { get; set; }
+        public DbSet<Laboratorio> Laboratorios { get; set; }
+        public DbSet<Puesto> Puestos { get; set; }
     }
 }

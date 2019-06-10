@@ -1,3 +1,5 @@
+using ProyectoBitacorasCientificas.Models;
+
 namespace ProyectoBitacorasCientificas.Migrations
 {
     using System;
@@ -7,6 +9,8 @@ namespace ProyectoBitacorasCientificas.Migrations
 
     internal sealed class Configuration : DbMigrationsConfiguration<ProyectoBitacorasCientificas.Models.ApplicationDbContext>
     {
+        public DbSet<RolesLaboratorio> RolesLaboratorioModel { get; set; }
+
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
