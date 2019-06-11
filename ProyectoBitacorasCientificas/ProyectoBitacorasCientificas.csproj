@@ -183,14 +183,24 @@
     <Compile Include="Migrations\201906110313283_MockedDataForEncrypted.Designer.cs">
       <DependentUpon>201906110313283_MockedDataForEncrypted.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201906110402264_AddModelsForLabRelated.cs" />
+    <Compile Include="Migrations\201906110402264_AddModelsForLabRelated.Designer.cs">
+      <DependentUpon>201906110402264_AddModelsForLabRelated.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\BitacoraExperimental.cs" />
+    <Compile Include="Models\Equipo.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Laboratorio.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\NivelAcademico.cs" />
+    <Compile Include="Models\Objetivos.cs" />
+    <Compile Include="Models\Proyectos.cs" />
     <Compile Include="Models\Puesto.cs" />
+    <Compile Include="Models\RamaCientifica.cs" />
     <Compile Include="Models\RolesLaboratorio.cs" />
+    <Compile Include="Models\TipoRamaCientifica.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -270,6 +280,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201906110313283_MockedDataForEncrypted.resx">
       <DependentUpon>201906110313283_MockedDataForEncrypted.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906110402264_AddModelsForLabRelated.resx">
+      <DependentUpon>201906110402264_AddModelsForLabRelated.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
