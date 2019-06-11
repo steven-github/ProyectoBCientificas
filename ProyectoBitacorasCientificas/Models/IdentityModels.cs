@@ -16,6 +16,7 @@ namespace ProyectoBitacorasCientificas.Models
             // Add custom user claims here
             return userIdentity;
         }
+
         // Custom properties
         public string nombre { get; set; }
         public string primerApellido { get; set; }
@@ -40,5 +41,11 @@ namespace ProyectoBitacorasCientificas.Models
         public DbSet<NivelAcademico> NivelAcademicos { get; set; }
         public DbSet<Laboratorio> Laboratorios { get; set; }
         public DbSet<Puesto> Puestos { get; set; }
+        public DbSet<Proyectos> Proyectos { get; set; }
+        public DbSet<RamaCientifica> RamaCientifica { get; set; }
+        public DbSet<TipoRamaCientifica> TipoRamaCientifica { get; set; }
+        public DbSet<BitacoraExperimental> BitacoraExperimental { get; set; }
+        public DbSet<Equipo> Equipo { get; set; }
+
     }
 }
