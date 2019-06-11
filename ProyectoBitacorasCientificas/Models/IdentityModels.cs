@@ -46,6 +46,8 @@ namespace ProyectoBitacorasCientificas.Models
         public DbSet<TipoRamaCientifica> TipoRamaCientifica { get; set; }
         public DbSet<BitacoraExperimental> BitacoraExperimental { get; set; }
         public DbSet<Equipo> Equipo { get; set; }
+        public DbSet<Objetivos> Objetivos { get; set; }
+        public DbSet<Factura> Facturas { get; set; }
 
     }
 }
