@@ -174,8 +174,11 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdministracionController.cs" />
+    <Compile Include="Controllers\ConsultaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\SeguridadController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -214,6 +217,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap-cyborg.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -269,6 +273,17 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Seguridad\CrearUsuario.cshtml" />
+    <Content Include="Views\Seguridad\RolesLaboratorio.cshtml" />
+    <Content Include="Views\Seguridad\RolesUsuario.cshtml" />
+    <Content Include="Views\Seguridad\PuestosRoles.cshtml" />
+    <Content Include="Views\Seguridad\Consecutivos.cshtml" />
+    <Content Include="Views\Administracion\BitacorasCientificas.cshtml" />
+    <Content Include="Views\Administracion\Proyectos.cshtml" />
+    <Content Include="Views\Administracion\RamasCientificas.cshtml" />
+    <Content Include="Views\Consulta\Bitacora.cshtml" />
+    <Content Include="Views\Consulta\Errores.cshtml" />
+    <Content Include="Views\Consulta\Descargas.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -17,13 +17,42 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("ProyectoBitacorasCientificas", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    @*<li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>*@
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Seguridad <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">@Html.ActionLink("Crear Usuario", "CrearUsuario", "Seguridad")</a></li>
+                            <li><a href="#">@Html.ActionLink("Asignar Roles Usuario", "RolesUsuario", "Seguridad")</a></li>
+                            <li><a href="#">@Html.ActionLink("Asignar Roles Laboratorio", "RolesLaboratorio", "Seguridad")</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">@Html.ActionLink("Roles/Puesto Laboratorio", "PuestosRoles", "Seguridad")</a></li>
+                            <li><a href="#">@Html.ActionLink("Consecutivos", "Consecutivos", "Seguridad")</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Administracion <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">@Html.ActionLink("Ramas Cientificas", "RamasCientificas", "Administracion")</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">@Html.ActionLink("Proyectos", "Proyectos", "Administracion")</a></li>
+                            <li><a href="#">@Html.ActionLink("Bitacoras Cientificas", "BitacorasCientificas", "Administracion")</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Consultas <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">@Html.ActionLink("Bitacora", "Bitacora", "Consulta")</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">@Html.ActionLink("Errores", "Errores", "Consulta")</a></li>
+                            <li><a href="#">@Html.ActionLink("Descargas", "Descargas", "Consulta")</a></li>
+                        </ul>
+                    </li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
