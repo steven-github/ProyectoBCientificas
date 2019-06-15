@@ -18,13 +18,43 @@ namespace ProyectoBitacorasCientificas.Controllers
         {
             return View();
         }
+        // GET: Administracion/RamasCientificasCrear
+        public ActionResult RamasCientificasCrear()
+        {
+            return View();
+        }
+        // GET: Administracion/RamasCientificasEditar
+        public ActionResult RamasCientificasEditar()
+        {
+            return View();
+        }
         // GET: Administracion/Proyectos
         public ActionResult Proyectos()
         {
             return View();
         }
+        // GET: Administracion/ProyectosCrear
+        public ActionResult ProyectosCrear()
+        {
+            return View();
+        }
+        // GET: Administracion/ProyectosEditar
+        public ActionResult ProyectosEditar()
+        {
+            return View();
+        }
         // GET: Administracion/BitacorasCientificas
         public ActionResult BitacorasCientificas()
+        {
+            return View();
+        }
+        // GET: Administracion/BitacorasCientificasCrear
+        public ActionResult BitacorasCientificasCrear()
+        {
+            return View();
+        }
+        // GET: Administracion/BitacorasCientificasEditar
+        public ActionResult BitacorasCientificasEditar()
         {
             return View();
         }

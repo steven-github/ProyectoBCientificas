@@ -6,3 +6,44 @@
 
 <h2>Proyectos</h2>
 
+<form class="form-horizontal">
+    <div class="form-group">
+        <label for="rol_laboratorio" class="control-label col-xs-4">Ramas cientificas</label>
+        <div class="col-xs-8">
+            <!--Table-->
+            <table id="tablePreview" class="table">
+                <!--Table head-->
+                <thead>
+                    <tr>
+                        <th>Codigo</th>
+                        <th>Nombre</th>
+                        <th>Rama Cientifica</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <!--Table head-->
+                <!--Table body-->
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Cancer Cura</td>
+                        <td>Biologia</td>
+                        <td>@Html.ActionLink("Editar", "ProyectosEditar", "Proyectos")</td>
+                        <td><a href="#">Eliminar</a></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Tuberculosis Cura</td>
+                        <td>Marinologia</td>
+                        <td>@Html.ActionLink("Editar", "ProyectosEditar", "Proyectos")</td>
+                        <td><a href="#">Eliminar</a></td>
+                    </tr>
+                </tbody>
+                <!--Table body-->
+            </table>
+            <!--Table-->
+            @Html.ActionLink("Crear", "ProyectosCrear", "Proyectos")
+        </div>
+    </div>
+</form>

@@ -6,3 +6,44 @@
 
 <h2>RamasCientificas</h2>
 
+<form class="form-horizontal">
+    <div class="form-group">
+        <label for="rol_laboratorio" class="control-label col-xs-4">Ramas cientificas</label>
+        <div class="col-xs-8">
+            <!--Table-->
+            <table id="tablePreview" class="table">
+                <!--Table head-->
+                <thead>
+                    <tr>
+                        <th>Codigo</th>
+                        <th>Nombre</th>
+                        <th>Tipo Rama Cientifica</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <!--Table head-->
+                <!--Table body-->
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Biologia</td>
+                        <td>2</td>
+                        <td>@Html.ActionLink("Editar", "RamasCientificasEditar", "Administracion")</td>
+                        <td><a href="#">Eliminar</a></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Marinologia</td>
+                        <td>255</td>
+                        <td>@Html.ActionLink("Editar", "RamasCientificasEditar", "Administracion")</td>
+                        <td><a href="#">Eliminar</a></td>
+                    </tr>
+                </tbody>
+                <!--Table body-->
+            </table>
+            <!--Table-->
+            @Html.ActionLink("Crear", "RamasCientificasCrear", "Administracion")
+        </div>
+    </div>
+</form>
