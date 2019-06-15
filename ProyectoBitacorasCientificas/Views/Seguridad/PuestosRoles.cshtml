@@ -6,3 +6,87 @@
 
 <h2>PuestosRoles</h2>
 
+<form class="form-horizontal">
+    <div class="form-group">
+        <label for="rol_laboratorio" class="control-label col-xs-4">Laboratorios</label>
+        <div class="col-xs-8">
+            <select id="laboratorio" name="laboratorio" class="select form-control">
+                <option value="heredia">Heredia</option>
+                <option value="cartago">Cartago</option>
+                <option value="sanjose">San Jose</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="rol_laboratorio" class="control-label col-xs-4">Puestos</label>
+        <div class="col-xs-8">
+            <!--Table-->
+            <table id="tablePreview" class="table">
+                <!--Table head-->
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Nombre</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <!--Table head-->
+                <!--Table body-->
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Encargado</td>
+                        <td><button name="eliminar" class="btn btn-primary">Editar</button></td>
+                        <td><button name="eliminar" class="btn btn-danger">Eliminar</button></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Asistente</td>
+                        <td><button name="eliminar" class="btn btn-primary">Editar</button></td>
+                        <td><button name="eliminar" class="btn btn-danger">Eliminar</button></td>
+                    </tr>
+                </tbody>
+                <!--Table body-->
+            </table>
+            <!--Table-->
+            <button name="submit" type="submit" class="btn btn-success">Nuevo</button>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="rol_laboratorio" class="control-label col-xs-4">Roles laboratorio</label>
+        <div class="col-xs-8">
+            <!--Table-->
+            <table id="tablePreview" class="table">
+                <!--Table head-->
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Nombre</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <!--Table head-->
+                <!--Table body-->
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Encargado</td>
+                        <td><button name="eliminar" class="btn btn-primary">Editar</button></td>
+                        <td><button name="eliminar" class="btn btn-danger">Eliminar</button></td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Asistente</td>
+                        <td><button name="eliminar" class="btn btn-primary">Editar</button></td>
+                        <td><button name="eliminar" class="btn btn-danger">Eliminar</button></td>
+                    </tr>
+                </tbody>
+                <!--Table body-->
+            </table>
+            <!--Table-->
+            <button name="submit" type="submit" class="btn btn-success">Nuevo</button>
+        </div>
+    </div>
+</form>

@@ -38,5 +38,15 @@ namespace ProyectoBitacorasCientificas.Controllers
         {
             return View();
         }
+        // GET: Seguridad/ConsecutivosCrear
+        public ActionResult ConsecutivosCrear()
+        {
+            return View();
+        }
+        // GET: Seguridad/ConsecutivosEditar
+        public ActionResult ConsecutivosEditar()
+        {
+            return View();
+        }
     }
 }
