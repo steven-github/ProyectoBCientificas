@@ -1,0 +1,130 @@
+﻿
+@{
+    ViewBag.Title = "CrearUsuario";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>CrearUsuario</h2>
+
+<form class="form-horizontal">
+    <div class="form-group">
+        <label for="nombre" class="control-label col-xs-4">Nombre</label>
+        <div class="col-xs-8">
+            <div class="input-group">
+                <div class="input-group-addon">
+                    <i class="fa fa-user"></i>
+                </div>
+                <input id="nombre" name="nombre" placeholder="Nombre" type="text" class="form-control">
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="primer_apellido" class="control-label col-xs-4">Primer apellido</label>
+        <div class="col-xs-8">
+            <div class="input-group">
+                <div class="input-group-addon">
+                    <i class="fa fa-user"></i>
+                </div>
+                <input id="primer_apellido" name="primer_apellido" placeholder="Primer apellido" type="text" class="form-control">
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="segundo_apellido" class="control-label col-xs-4">Segundo apellido</label>
+        <div class="col-xs-8">
+            <div class="input-group">
+                <div class="input-group-addon">
+                    <i class="fa fa-user"></i>
+                </div>
+                <input id="segundo_apellido" name="segundo_apellido" placeholder="Segundo apellido" type="text" class="form-control">
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="telefono" class="control-label col-xs-4">Telefono</label>
+        <div class="col-xs-8">
+            <div class="input-group">
+                <div class="input-group-addon">
+                    <i class="fa fa-phone"></i>
+                </div>
+                <input id="telefono" name="telefono" placeholder="Telefono" type="text" class="form-control">
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="nickname" class="control-label col-xs-4">Nickname</label>
+        <div class="col-xs-8">
+            <div class="input-group">
+                <div class="input-group-addon">
+                    <i class="fa fa-user-circle"></i>
+                </div>
+                <input id="nickname" name="nickname" placeholder="Nickname" type="text" class="form-control">
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="rol" class="control-label col-xs-4">Rol</label>
+        <div class="col-xs-8">
+            <select id="rol" name="rol" class="select form-control">
+                <option value="administrador">Administrador</option>
+                <option value="seguridad">Seguridad</option>
+                <option value="consecutivo">Consecutivo</option>
+                <option value="mantenimiento">Mantenimiento</option>
+                <option value="consulta">Consulta</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="nivel_academico" class="control-label col-xs-4">Nivel academico</label>
+        <div class="col-xs-8">
+            <select id="nivel_academico" name="nivel_academico" class="select form-control">
+                <option value="tecnico">Tecnico</option>
+                <option value="diplomado">Diplomado</option>
+                <option value="bachillerato">Bachillerato</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="puesto" class="control-label col-xs-4">Puesto</label>
+        <div class="col-xs-8">
+            <select id="puesto" name="puesto" class="select form-control">
+                <option value="ingeniero">Ingeniero</option>
+                <option value="profesor">Profesor</option>
+                <option value="asistente">Asistente</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="rol_laboratorio" class="control-label col-xs-4">Rol Laboratorio</label>
+        <div class="col-xs-8">
+            <select id="rol_laboratorio" name="rol_laboratorio" class="select form-control">
+                <option value="cientifico">Cientifico</option>
+                <option value="arquitecto">Arquitecto</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- File Button -->
+    <div class="form-group">
+        <label class="control-label col-xs-4" for="firma">Firma</label>
+        <div class="col-xs-8">
+            <input id="firma" name="firma" class="input-file" type="file">
+        </div>
+    </div>
+
+    <!-- File Button -->
+    <div class="form-group">
+        <label class="control-label col-xs-4" for="foto">Foto</label>
+        <div class="col-xs-8">
+            <input id="foto" name="foto" class="input-file" type="file">
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-xs-offset-4 col-xs-8">
+            <button name="cambiar_password" class="btn btn-success">Cambiar password</button>
+            <button name="submit" type="submit" class="btn btn-primary">Guardar</button>
+        </div>
+    </div>
+</form>
+
