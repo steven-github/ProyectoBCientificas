@@ -220,3 +220,7 @@ C:\Users\Steven S\source\repos\ProyectoBCientificas\ProyectoBitacorasCientificas
 C:\Users\Steven S\source\repos\ProyectoBCientificas\ProyectoBitacorasCientificas\obj\Debug\ProyectoBitacorasCientificas.csproj.CopyComplete
 C:\Users\Steven S\source\repos\ProyectoBCientificas\ProyectoBitacorasCientificas\obj\Debug\ProyectoBitacorasCientificas.dll
 C:\Users\Steven S\source\repos\ProyectoBCientificas\ProyectoBitacorasCientificas\obj\Debug\ProyectoBitacorasCientificas.pdb
+C:\Users\Steven S\source\repos\ProyectoBCientificas\ProyectoBitacorasCientificas\bin\en\ProyectoBitacorasCientificas.resources.dll
+C:\Users\Steven S\source\repos\ProyectoBCientificas\ProyectoBitacorasCientificas\obj\Debug\ProyectoBitacorasCientificas.Resources.Lang.resources
+C:\Users\Steven S\source\repos\ProyectoBCientificas\ProyectoBitacorasCientificas\obj\Debug\ProyectoBitacorasCientificas.Resources.Lang.en.resources
+C:\Users\Steven S\source\repos\ProyectoBCientificas\ProyectoBitacorasCientificas\obj\Debug\en\ProyectoBitacorasCientificas.resources.dll
