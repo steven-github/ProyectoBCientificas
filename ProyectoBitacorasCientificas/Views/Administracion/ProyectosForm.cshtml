@@ -1,0 +1,29 @@
+﻿
+@using System.Web.Mvc.Html
+@model ProyectoBitacorasCientificas.ViewModels.ProyectoRamaCientificaForm
+@{
+    ViewBag.Title = "ProyectosCrear";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Proyectos Crear</h2>
+
+@using (Html.BeginForm("ProyectosCrearEditar", "Administracion"))
+{
+<form class="form-horizontal">
+    <div class="form-group">
+        @Html.LabelFor(m => m.Proyectos.nombre)
+        @Html.TextBoxFor(m => m.Proyectos.nombre,new {@class = "form-control"})
+    </div>
+    
+    <div class="form-group">
+        @Html.LabelFor(m => m.Proyectos.RamaCientificaId)
+        @Html.DropDownListFor(m => m.Proyectos.RamaCientificaId, new SelectList(Model.RamasCientificas,"id","nombre"),"Seleccione la rama cientifica",new {@class="form-control"})
+    </div>
+    
+    @Html.HiddenFor(m => m.Proyectos.id)
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>
+}
+
+ 
