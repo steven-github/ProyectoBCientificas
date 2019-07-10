@@ -7,6 +7,7 @@ namespace ProyectoBitacorasCientificas.Migrations
     {
         public override void Up()
         {
+
             Sql("INSERT INTO [dbo].[TipoRamaCientificas]" +
                 "([nombre])" +
                 "VALUES" +
@@ -29,6 +30,17 @@ namespace ProyectoBitacorasCientificas.Migrations
                 "'Haciendo'," +
                 "3)");
 
+            Sql("INSERT INTO [dbo].[Proyectos]" +
+                "([prefijo]" +
+                ",[nombre]" +
+                ",[RamaCientificaId])" +
+                "VALUES" +
+                "('pro'," +
+                "'HellBlade'," +
+                "1), " +
+                "('pro'," +
+                "'T-Virus'," +
+                "2)");
         }
         
         public override void Down()

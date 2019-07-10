@@ -30,8 +30,9 @@ namespace ProyectoBitacorasCientificas.Controllers
         }
 
         #region RamasCientificasCRUD
-        // GET: Administracion/RamasCientificasCrear
-        public ActionResult RamasCientificasCrear()
+
+        // GET: Administracion/RamasCientificasForm
+        public ActionResult RamasCientificasForm()
         {
             var tiposRamas = _context.TipoRamaCientifica.ToList();
 
@@ -40,7 +41,8 @@ namespace ProyectoBitacorasCientificas.Controllers
                 TipoRamaCientificas = tiposRamas
             };
 
-            return View("RamasCientificasCrear", viewModel);
+
+            return View("RamasCientificasForm", viewModel);
         }
 
         // GET: Administracion/RamasCientificas
@@ -52,7 +54,8 @@ namespace ProyectoBitacorasCientificas.Controllers
 
 
         [HttpPost]
-        public ActionResult CrearEditar(RamaCientifica ramaCientifica)
+
+        public ActionResult RamaCientificasCrearEditar(RamaCientifica ramaCientifica)
         {
             if (ramaCientifica.id == 0)
             {
@@ -87,7 +90,7 @@ namespace ProyectoBitacorasCientificas.Controllers
                 TipoRamaCientificas = _context.TipoRamaCientifica.ToList()
             };
 
-            return View("RamasCientificasCrear", viewModel);
+            return View("RamasCientificasForm", viewModel);
         }
 
         public ActionResult RamasCientificasEliminar(int id)
@@ -100,22 +103,76 @@ namespace ProyectoBitacorasCientificas.Controllers
 
         #endregion
 
+        #region ProyectosCRUD
 
-        // GET: Administracion/Proyectos
+        
+        public ActionResult ProyectosForm()
+        {
+            var ramasList = _context.RamaCientifica.ToList();
+
+            var viewModel = new ProyectoRamaCientificaForm()
+            {
+                RamasCientificas = ramasList
+            };
+
+
+            return View("ProyectosForm", viewModel);
+        }
+
         public ActionResult Proyectos()
         {
-            return View();
+            var proyectosList = _context.Proyectos.Include(c => c.RamaCientifica).ToList();
+            return View(proyectosList);
         }
-        // GET: Administracion/ProyectosCrear
-        public ActionResult ProyectosCrear()
+
+        [HttpPost]
+        public ActionResult ProyectosCrearEditar(Proyectos proyectos)
         {
-            return View();
+            if (proyectos.id == 0)
+            {
+                _context.Proyectos.Add(proyectos); 
+            }
+            else
+            {
+                var proyectoInDb = _context.Proyectos.Single(c => c.id == proyectos.id);
+
+                proyectoInDb.prefijo = proyectos.prefijo;
+                proyectoInDb.nombre = proyectos.nombre;
+                proyectoInDb.RamaCientificaId = proyectos.RamaCientificaId;
+            }
+
+            _context.SaveChanges();
+            return RedirectToAction("Proyectos", "Administracion");
         }
+
         // GET: Administracion/ProyectosEditar
-        public ActionResult ProyectosEditar()
+        public ActionResult ProyectosEditar(int id)
         {
-            return View();
+
+            var proyecto = _context.Proyectos.SingleOrDefault(c => c.id == id);
+            if (proyecto == null)
+            {
+                return HttpNotFound();
+            }
+
+            var viewModel = new ProyectoRamaCientificaForm()
+            {
+                Proyectos = proyecto,
+                RamasCientificas = _context.RamaCientifica.ToList()
+            };
+
+            return View("ProyectosForm", viewModel);
         }
+
+        public ActionResult ProyectosEliminar(int id)
+        {
+            var proyecto = _context.Proyectos.SingleOrDefault(c => c.id == id);
+            _context.Proyectos.Remove(proyecto);
+            _context.SaveChanges();
+            return RedirectToAction("Proyectos", "Administracion");
+        }
+        #endregion
+
         // GET: Administracion/BitacorasCientificas
         public ActionResult BitacorasCientificas()
         {

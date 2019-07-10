@@ -220,6 +220,9 @@
     <Compile Include="Models\Transaccion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+
+    <Compile Include="ViewModels\ProyectoRamaCientificaForm.cs" />
+
     <Compile Include="ViewModels\RamaCientificaForm.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -295,9 +298,8 @@
     <Content Include="Views\Consulta\Descargas.cshtml" />
     <Content Include="Views\Seguridad\ConsecutivosCrear.cshtml" />
     <Content Include="Views\Seguridad\ConsecutivosEditar.cshtml" />
-    <Content Include="Views\Administracion\RamasCientificasCrear.cshtml" />
-    <Content Include="Views\Administracion\RamasCientificasEditar.cshtml" />
-    <Content Include="Views\Administracion\ProyectosCrear.cshtml" />
+    <Content Include="Views\Administracion\RamasCientificasForm.cshtml" />
+    <Content Include="Views\Administracion\ProyectosForm.cshtml" />
     <Content Include="Views\Administracion\ProyectosEditar.cshtml" />
     <Content Include="Views\Administracion\BitacorasCientificasCrear.cshtml" />
     <Content Include="Views\Administracion\BitacorasCientificasEditar.cshtml" />
