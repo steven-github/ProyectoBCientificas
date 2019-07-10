@@ -1,4 +1,6 @@
 ﻿
+@using System.Web.UI.WebControls
+@model IEnumerable<ProyectoBitacorasCientificas.Models.Proyectos>
 @{
     ViewBag.Title = "Proyectos";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -8,9 +10,56 @@
 
 <form class="form-horizontal">
     <div class="form-group">
-        <label for="rol_laboratorio" class="control-label col-xs-4">Ramas cientificas</label>
+        @*<label for="rol_laboratorio" class="control-label col-xs-4">Ramas cientificas</label>*@
         <div class="col-xs-8">
-            <!--Table-->
+           
+        @if (Model != null)
+        {
+            if (!Model.Any())
+            {
+                <p>No tenemos Proyectos</p>
+            }
+            else
+            {
+                <!--Table-->
+                <table id="tablePreview" class="table">
+                    <!--Table head-->
+                    <thead>
+                    <tr>
+                        <th>Codigo</th>
+                        <th>Nombre</th>
+                        <th>Rama Cientifica</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <!--Table head-->
+                    <!--Table body-->
+                    <tbody>
+                    @foreach (var proyectos in Model)
+                    {
+                        <tr>
+                            <td>@proyectos.id</td>
+                            <td>@proyectos.nombre</td>
+                            <td>@proyectos.RamaCientifica.nombre</td>
+                            <td>@Html.ActionLink("Editar", "ProyectosEditar", "Administracion", new {id = proyectos.id}, null)</td>
+                            <td>@Html.ActionLink("Eliminar", "ProyectosEliminar", "Administracion", new {id = proyectos.id}, null)</td>
+                        </tr>
+
+                    }
+                    </tbody>
+                    <!--Table body-->
+                </table>
+                <!--Table-->
+            }
+        }
+            @Html.ActionLink("Crear", "ProyectosForm", "Administracion")
+            </div>
+        </div>
+</form>  
+
+            @*<!--Table-->
+
             <table id="tablePreview" class="table">
                 <!--Table head-->
                 <thead>
@@ -42,8 +91,4 @@
                 </tbody>
                 <!--Table body-->
             </table>
-            <!--Table-->
-            @Html.ActionLink("Crear", "ProyectosCrear", "Proyectos")
-        </div>
-    </div>
-</form>
+            <!--Table-->*@
