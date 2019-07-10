@@ -178,6 +178,7 @@
     <Compile Include="Controllers\ConsultaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\RamasCientificasController.cs" />
     <Compile Include="Controllers\SeguridadController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -193,6 +194,10 @@
     <Compile Include="Migrations\201906110428129_AddModelForEasyPay.cs" />
     <Compile Include="Migrations\201906110428129_AddModelForEasyPay.Designer.cs">
       <DependentUpon>201906110428129_AddModelForEasyPay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907100059397_AddDataToRamasCientificas.cs" />
+    <Compile Include="Migrations\201907100059397_AddDataToRamasCientificas.Designer.cs">
+      <DependentUpon>201907100059397_AddDataToRamasCientificas.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -215,6 +220,7 @@
     <Compile Include="Models\Transaccion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\RamaCientificaForm.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-cyborg.css" />
@@ -240,7 +246,9 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -319,6 +327,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201906110428129_AddModelForEasyPay.resx">
       <DependentUpon>201906110428129_AddModelForEasyPay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907100059397_AddDataToRamasCientificas.resx">
+      <DependentUpon>201907100059397_AddDataToRamasCientificas.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
