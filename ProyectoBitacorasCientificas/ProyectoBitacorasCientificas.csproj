@@ -342,7 +342,6 @@
     <EmbeddedResource Include="Migrations\201906110428129_AddModelForEasyPay.resx">
       <DependentUpon>201906110428129_AddModelForEasyPay.cs</DependentUpon>
     </EmbeddedResource>
-<<<<<<< HEAD
     <EmbeddedResource Include="Resources\Lang.en.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Lang.en.Designer.cs</LastGenOutput>
@@ -350,10 +349,9 @@
     <EmbeddedResource Include="Resources\Lang.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Lang.Designer.cs</LastGenOutput>
-=======
+    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201907100059397_AddDataToRamasCientificas.resx">
       <DependentUpon>201907100059397_AddDataToRamasCientificas.cs</DependentUpon>
->>>>>>> f23472493ab57b73fc9cde66d898aa2a14809b94
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
