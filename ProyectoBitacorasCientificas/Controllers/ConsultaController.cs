@@ -14,7 +14,7 @@ namespace ProyectoBitacorasCientificas.Controllers
             return View();
         }
         // GET: Consulta/Bitacora
-        public ActionResult Bitacora()
+        public ActionResult Bitacoras()
         {
             return View();
         }

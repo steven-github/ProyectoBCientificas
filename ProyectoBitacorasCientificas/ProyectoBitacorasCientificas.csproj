@@ -177,6 +177,7 @@
     <Compile Include="Controllers\AdministracionController.cs" />
     <Compile Include="Controllers\ConsultaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LanguageController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\RamasCientificasController.cs" />
     <Compile Include="Controllers\SeguridadController.cs" />
@@ -219,7 +220,20 @@
     <Compile Include="Models\TipoRamaCientifica.cs" />
     <Compile Include="Models\Transaccion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\Lang.en.Designer.cs">
+      <DependentUpon>Lang.en.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Lang.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Lang.resx</DependentUpon>
+    </Compile>
     <Compile Include="Startup.cs" />
+
+    <Compile Include="ViewModels\ProyectoRamaCientificaForm.cs" />
+
     <Compile Include="ViewModels\RamaCientificaForm.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -290,17 +304,17 @@
     <Content Include="Views\Administracion\BitacorasCientificas.cshtml" />
     <Content Include="Views\Administracion\Proyectos.cshtml" />
     <Content Include="Views\Administracion\RamasCientificas.cshtml" />
-    <Content Include="Views\Consulta\Bitacora.cshtml" />
+    <Content Include="Views\Consulta\Bitacoras.cshtml" />
     <Content Include="Views\Consulta\Errores.cshtml" />
     <Content Include="Views\Consulta\Descargas.cshtml" />
     <Content Include="Views\Seguridad\ConsecutivosCrear.cshtml" />
     <Content Include="Views\Seguridad\ConsecutivosEditar.cshtml" />
-    <Content Include="Views\Administracion\RamasCientificasCrear.cshtml" />
-    <Content Include="Views\Administracion\RamasCientificasEditar.cshtml" />
-    <Content Include="Views\Administracion\ProyectosCrear.cshtml" />
+    <Content Include="Views\Administracion\RamasCientificasForm.cshtml" />
+    <Content Include="Views\Administracion\ProyectosForm.cshtml" />
     <Content Include="Views\Administracion\ProyectosEditar.cshtml" />
     <Content Include="Views\Administracion\BitacorasCientificasCrear.cshtml" />
     <Content Include="Views\Administracion\BitacorasCientificasEditar.cshtml" />
+    <Content Include="Views\Language\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -328,8 +342,18 @@
     <EmbeddedResource Include="Migrations\201906110428129_AddModelForEasyPay.resx">
       <DependentUpon>201906110428129_AddModelForEasyPay.cs</DependentUpon>
     </EmbeddedResource>
+<<<<<<< HEAD
+    <EmbeddedResource Include="Resources\Lang.en.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Lang.en.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Lang.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Lang.Designer.cs</LastGenOutput>
+=======
     <EmbeddedResource Include="Migrations\201907100059397_AddDataToRamasCientificas.resx">
       <DependentUpon>201907100059397_AddDataToRamasCientificas.cs</DependentUpon>
+>>>>>>> f23472493ab57b73fc9cde66d898aa2a14809b94
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

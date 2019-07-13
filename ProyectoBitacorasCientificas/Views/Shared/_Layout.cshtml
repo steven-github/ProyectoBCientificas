@@ -22,37 +22,45 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     @*<li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>*@
+        <li>@Html.ActionLink("About", "About", "Home")</li>
+        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>*@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Seguridad <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">@Html.ActionLink("Crear Usuario", "CrearUsuario", "Seguridad")</a></li>
-                            <li><a href="#">@Html.ActionLink("Asignar Roles Usuario", "RolesUsuario", "Seguridad")</a></li>
-                            <li><a href="#">@Html.ActionLink("Asignar Roles Laboratorio", "RolesLaboratorio", "Seguridad")</a></li>
+                            <li><a href="#">@Html.ActionLink(ProyectoBitacorasCientificas.Resources.Lang.CrearUsuario, "CrearUsuario", "Seguridad")</a></li>
+                            <li><a href="#">@Html.ActionLink(ProyectoBitacorasCientificas.Resources.Lang.RolesUsuario, "RolesUsuario", "Seguridad")</a></li>
+                            <li><a href="#">@Html.ActionLink(ProyectoBitacorasCientificas.Resources.Lang.RolesLaboratorio, "RolesLaboratorio", "Seguridad")</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="#">@Html.ActionLink("Roles/Puesto Laboratorio", "PuestosRoles", "Seguridad")</a></li>
-                            <li><a href="#">@Html.ActionLink("Consecutivos", "Consecutivos", "Seguridad")</a></li>
+                            <li><a href="#">@Html.ActionLink(ProyectoBitacorasCientificas.Resources.Lang.PuestosRoles, "PuestosRoles", "Seguridad")</a></li>
+                            <li><a href="#">@Html.ActionLink(ProyectoBitacorasCientificas.Resources.Lang.Consecutivos, "Consecutivos", "Seguridad")</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Administracion <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">@Html.ActionLink("Ramas Cientificas", "RamasCientificas", "Administracion")</a></li>
+                            <li><a href="#">@Html.ActionLink(ProyectoBitacorasCientificas.Resources.Lang.RamasCientificas, "RamasCientificas", "Administracion")</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="#">@Html.ActionLink("Proyectos", "Proyectos", "Administracion")</a></li>
-                            <li><a href="#">@Html.ActionLink("Bitacoras Cientificas", "BitacorasCientificas", "Administracion")</a></li>
+                            <li><a href="#">@Html.ActionLink(ProyectoBitacorasCientificas.Resources.Lang.Proyectos, "Proyectos", "Administracion")</a></li>
+                            <li><a href="#">@Html.ActionLink(ProyectoBitacorasCientificas.Resources.Lang.BitacorasCientificas, "BitacorasCientificas", "Administracion")</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Consultas <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">@Html.ActionLink("Bitacora", "Bitacora", "Consulta")</a></li>
+                            <li><a href="#">@Html.ActionLink(ProyectoBitacorasCientificas.Resources.Lang.Bitacoras, "Bitacoras", "Consulta")</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="#">@Html.ActionLink("Errores", "Errores", "Consulta")</a></li>
-                            <li><a href="#">@Html.ActionLink("Descargas", "Descargas", "Consulta")</a></li>
+                            <li><a href="#">@Html.ActionLink(ProyectoBitacorasCientificas.Resources.Lang.Errores, "Errores", "Consulta")</a></li>
+                            <li><a href="#">@Html.ActionLink(ProyectoBitacorasCientificas.Resources.Lang.Descargas, "Descargas", "Consulta")</a></li>
                         </ul>
                     </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Idiomas <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">@Html.ActionLink("Spanish", "Change", "Language", new { LanguageAbbreviation = "es" }, null)</a></li>
+                            <li><a href="#">@Html.ActionLink("English", "Change", "Language", new { LanguageAbbreviation = "en" }, null)</a></li>
+                        </ul>
+                    </li>
+                    @*<li>@Html.ActionLink(ProyectoBitacorasCientificas.Resources.Lang.Lenguaje, "Index", "Language")</li>*@
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>

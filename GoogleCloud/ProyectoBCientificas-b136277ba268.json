@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "proyectobcientificas",
+  "private_key_id": "b136277ba2685b10b6a436838db5e1e95355c884",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCCQldIir/TjxLM\nVDdnDUn35ho3l9+V0FyM17G4sAh1KRML17VRxuoJriZyFluAuL3tj0VhnYkbUY3A\nTSLdX6PX5Wie1qQ8QV74BYMvtuOhqn+cr0a84oRBgCbbgEnkj8RDDy4DkrAc5OdG\nlYCuRqsstgi0T/sgla/2zYfPJKl+AicDdNzwMJLA5S1jGxSwB5UhlU3YrE7OePdp\niJt3d5J5pOaJdmiVwL1xlHEM3FdaJD1Bl10P0Ld5GlFJxNvXtG3iyLOAh7SnXhmo\n5xxVbM01NNrV6qshNYvclniYRl95idRPhSevjVvjnmzPMMnFQKzJqLs+6G5r95Nc\n5Utk+TY1AgMBAAECggEAFmv2/Eyt4mvBT5y7gKif7+US5DjnSrF4DOJf/CuI+Snd\n1m8GDhKQXKQ2h/LjQ1AJmWfNCJWGcUZjgROGCdcZq+MYVCccVCbogwbn4wG3Qy/H\nEaB2K7NOErxNdAEsNwSsQuLNB95rJD4etV6srNMLSgH3k5ok3yIFDRWp5/Umm8Li\nN9x5TRlORIIC3tcaKmQtViY/lTEOTCJ796fanZXtBDCOHR3rywJ3gYf+dNBcVyZB\nYrJyDdfKyxhqBtAHk1fBObi71dhU211n7ydtPv4uAk56LRenk8ucl7at5znC141t\nO0oW/DyBpr1z28NNRsQICigcEV1vR0/8LY5q+ZgtgQKBgQC4FvMK7egZhQcHdF1s\neRkwM7Vj5rdvr+K3J64x6vfrci69S7pR5HH+XOwf+GsXyJnNoSN/pIA5GEp5Hy3r\nxNFqQ8pUlOKQIPRRb7ktGsKSefXZqU9UIJOJayoQzvJBoEIA+qO53h0PHMtN1pbp\nViWQHk6rrh9PoQf9hXVusnw01QKBgQC1JFD1ZaRfO1y4pXc3wmrfJXtjy/QzzjaT\nLKOl214HyiHN4vBruZWsUEiNbMpcPa0wio7DBUpC5v20SJaoGxJLI3/GxfiL2nCD\n4cfIu3X9cwDQk1eKZFd6EsPCcn1wZht8/bWaPmBwphOIa7JLIpP6vS9kkBfrJi21\nKxe12LMr4QKBgE556g4EsWb/oKl638C4NxanVHJMDnLcRgfSMJ4zDpEeUfJ8b+ct\nPbMzpa1TV0QCTh6szNdDJy4vvr+3nPnfI27riztXZOYQRlbZC9XAjKWovDeXx6uT\nX5G7T2lu7zMuwDRupJE9sKGaosiB7D94a/buFJd3WP23JhLba95O1EgpAoGAAcTZ\nBYx4jnWF8kerYmADqyoyikbzm43n+of1ESmTQYA31ErjDipBy+z8yGTHlR8FEfRI\ncJ8cmoqm75vF3N5mz1UJameEhdkcQC10RgGOpWr6Fw9ZS4CvWgHU55E2qGJW4mGX\n5Gm3h2IXzr0+gH1V9JzkWZcOpL06tQo2sQ/ssAECgYAKTFQuO1kUXJBTcZeoUK6R\nMi+YfDAO40tHXd7uxXVMXB7TNWqSvyddGVfrWFq2YL54iGCNQuO3QPhI5SYG187/\nkkkV45hO/pxxHkrU/q5f1DI8XGU88FV+r4ulHHY2PSOJTVuTSp9BSdRnnWKI5T63\nxAGpd6SyqxmkwAwi+3H/mQ==\n-----END PRIVATE KEY-----\n",
+  "client_email": "josue-823@proyectobcientificas.iam.gserviceaccount.com",
+  "client_id": "107695510744615745767",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/josue-823%40proyectobcientificas.iam.gserviceaccount.com"
+}
