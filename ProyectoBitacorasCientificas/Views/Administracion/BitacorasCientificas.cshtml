@@ -1,15 +1,25 @@
-﻿
+﻿@using System.Web.UI.WebControls
+@model IEnumerable<ProyectoBitacorasCientificas.Models.Bitacora>
+
 @{
     ViewBag.Title = "BitacorasCientificas";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>BitacorasCientificas</h2>
-
+<h2>BitacoraCientificas</h2>
 <form class="form-horizontal">
     <div class="form-group">
-        <label for="rol_laboratorio" class="control-label col-xs-4">Lista de consecutivos</label>
-        <div class="col-xs-8">
+    <div class="col-xs-8">
+
+@if (Model != null)
+{
+    if (!Model.Any())
+    {
+        <p>No tenemos Bitacoras</p>
+    }
+    else
+    {
+        
             <!--Table-->
             <table id="tablePreview" class="table">
                 <!--Table head-->
@@ -19,37 +29,76 @@
                         <th>Nombre</th>
                         <th>Fecha</th>
                         <th>Proyecto</th>
-                        <th>Usuario Creador</th>
+                       @* <th>Usuario Creador</th>*@
                         <th></th>
                         <th></th>
                     </tr>
                 </thead>
-                <!--Table head-->
-                <!--Table body-->
                 <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Probando Cura</td>
-                        <td>20/10/2019</td>
-                        <td>Cura VIH</td>
-                        <td>1</td>
-                        <td>@Html.ActionLink("Editar", "BitacorasCientificasEditar", "Administracion")</td>
-                        <td><a href="#">Eliminar</a></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Cortando Dedos</td>
-                        <td>20/10/2019</td>
-                        <td>Cura Cancer</td>
-                        <td>2</td>
-                        <td>@Html.ActionLink("Editar", "BitacorasCientificasEditar", "Administracion")</td>
-                        <td><a href="#">Eliminar</a></td>
-                    </tr>
+                    @foreach (var bitacoras in Model)
+                    {
+                        <tr>
+                            <td>@bitacoras.id</td>
+                            <td>@bitacoras.nombreExperimento</td>
+                            <td>@bitacoras.Fecha</td>
+                            <td>@bitacoras.Proyectos.nombre</td>
+                            <td>@Html.ActionLink("Editar", "BitacorasCientificasEditar", "Administracion", new {id = bitacoras.id}, null)</td>
+                            <td>@Html.ActionLink("Eliminar", "BitacorasEliminar", "Administracion", new {id = bitacoras.id}, null)</td>
+                        </tr>
+                    }
                 </tbody>
-                <!--Table body-->
             </table>
-            <!--Table-->
-            @Html.ActionLink("Crear", "BitacorasCientificasCrear", "Administracion")
+    }
+
+}
+@Html.ActionLink("Crear", "BitacorasCientificasCrear", "Administracion")
         </div>
-    </div>
-</form>
+        </div>
+        </form>
+    @*<form class="form-horizontal">
+        <div class="form-group">
+            <label for="rol_laboratorio" class="control-label col-xs-4">Lista de consecutivos</label>
+            <div class="col-xs-8">
+                <!--Table-->
+                <table id="tablePreview" class="table">
+                    <!--Table head-->
+                    <thead>
+                        <tr>
+                            <th>Codigo</th>
+                            <th>Nombre</th>
+                            <th>Fecha</th>
+                            <th>Proyecto</th>
+                            <th>Usuario Creador</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <!--Table head-->
+                    <!--Table body-->
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Probando Cura</td>
+                            <td>20/10/2019</td>
+                            <td>Cura VIH</td>
+                            <td>1</td>
+                            <td>@Html.ActionLink("Editar", "BitacoraCientificasEditar", "Administracion")</td>
+                            <td><a href="#">Eliminar</a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>Cortando Dedos</td>
+                            <td>20/10/2019</td>
+                            <td>Cura Cancer</td>
+                            <td>2</td>
+                            <td>@Html.ActionLink("Editar", "BitacoraCientificasEditar", "Administracion")</td>
+                            <td><a href="#">Eliminar</a></td>
+                        </tr>
+                    </tbody>
+                    <!--Table body-->
+                </table>
+                <!--Table-->
+                @Html.ActionLink("Crear", "BitacoraCientificasCrear", "Administracion")
+            </div>
+        </div>
+    </form>*@
