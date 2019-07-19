@@ -224,3 +224,4 @@ C:\Users\Steven S\source\repos\ProyectoBCientificas\ProyectoBitacorasCientificas
 C:\Users\Steven S\source\repos\ProyectoBCientificas\ProyectoBitacorasCientificas\obj\Debug\ProyectoBitacorasCientificas.Resources.Lang.resources
 C:\Users\Steven S\source\repos\ProyectoBCientificas\ProyectoBitacorasCientificas\obj\Debug\ProyectoBitacorasCientificas.Resources.Lang.en.resources
 C:\Users\Steven S\source\repos\ProyectoBCientificas\ProyectoBitacorasCientificas\obj\Debug\en\ProyectoBitacorasCientificas.resources.dll
+C:\Users\Steven S\source\repos\ProyectoBCientificas\ProyectoBitacorasCientificas\obj\Debug\ProyectoBitacorasCientificas.Migrations.AddDataToRamasCientificas.resources
