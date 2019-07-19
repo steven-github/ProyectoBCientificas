@@ -41,10 +41,10 @@ namespace ProyectoBitacorasCientificas.Models
         public DbSet<NivelAcademico> NivelAcademicos { get; set; }
         public DbSet<Laboratorio> Laboratorios { get; set; }
         public DbSet<Puesto> Puestos { get; set; }
-        public DbSet<Proyectos> Proyectos { get; set; }
         public DbSet<RamaCientifica> RamaCientifica { get; set; }
         public DbSet<TipoRamaCientifica> TipoRamaCientifica { get; set; }
-        public DbSet<BitacoraExperimental> BitacoraExperimental { get; set; }
+        public DbSet<Proyectos> Proyectos { get; set; }
+        public DbSet<Bitacora> Bitacoras { get; set; }
         public DbSet<Equipo> Equipo { get; set; }
         public DbSet<Objetivos> Objetivos { get; set; }
         public DbSet<Factura> Facturas { get; set; }
