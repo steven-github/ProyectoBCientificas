@@ -1,36 +1,54 @@
 ﻿
 @using System.Web.Mvc.Html
-@model ProyectoBitacorasCientificas.ViewModels.BitacorasForm
+@model ProyectoBitacorasCientificas.ViewModels.ObjetivosForm
 @{
-    ViewBag.Title = "BitacorasCientificasCrear";
+    ViewBag.Title = "ObjetivosForm";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Bitacoras Cientificas Crear/Editar</h2>
+<h2>Objetivos Crear/Editar</h2>
 
-@using (Html.BeginForm("BitacorasCrearEditar", "Administracion"))
+@using (Html.BeginForm("ObjetivosCrearEditar", "Administracion"))
 {
 <form class="form-horizontal">
     <div class="form-group">
-        @Html.LabelFor(m => m.Bitacora.nombreExperimento)
-        @Html.TextBoxFor(m => m.Bitacora.nombreExperimento, new { @class = "form-control" })
+        @Html.LabelFor(m => m.Objetivos.objetivoGeneral)
+        @Html.TextBoxFor(m => m.Objetivos.objetivoGeneral, new { @class = "form-control" })
     </div>
     <div class="form-group">
-        @Html.LabelFor(m => m.Bitacora.Fecha)
-        @Html.TextBoxFor(m => m.Bitacora.Fecha, new { @class = "form-control" })
+        @Html.LabelFor(m => m.Objetivos.objetivosEspecificos)
+        @Html.TextBoxFor(m => m.Objetivos.objetivosEspecificos, new { @class = "form-control", @placeholder = "Separados por coma" })
     </div>
     <div class="form-group">
-        @Html.LabelFor(m => m.Bitacora.ProyectosId)
-        @Html.DropDownListFor(m => m.Bitacora.ProyectosId,
+        @Html.LabelFor(m => m.Objetivos.descripcion)
+        @Html.TextBoxFor(m => m.Objetivos.descripcion, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Objetivos.procedimientoExperimiento)
+        @Html.TextBoxFor(m => m.Objetivos.procedimientoExperimiento, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Objetivos.BitacoraId)
+        @Html.DropDownListFor(m => m.Objetivos.BitacoraId,
             new SelectList(
-                Model.Proyectos,
+                Model.Bitacoras,
                 "id",
-                "nombre"),
-            "Seleccione el proyecto",
+                "nombreExperimento"),
+            "Seleccione la bitacora",
+            new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Objetivos.EquipoId)
+        @Html.DropDownListFor(m => m.Objetivos.EquipoId,
+            new SelectList(
+                Model.Equipos,
+                "id",
+                "modelo"),
+            "Seleccione el equipo",
             new { @class = "form-control" })
     </div>
 
-    @Html.HiddenFor(m => m.Bitacora.id)
+    @Html.HiddenFor(m => m.Objetivos.id)
     <button type="submit" class="btn btn-primary">Save</button>
 </form>
 }

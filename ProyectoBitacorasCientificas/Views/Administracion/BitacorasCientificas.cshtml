@@ -51,54 +51,12 @@
     }
 
 }
-@Html.ActionLink("Crear", "BitacorasCientificasCrear", "Administracion")
+    @Html.ActionLink("Crear", "BitacorasCientificasCrear", "Administracion")
+<br/>
+    @Html.ActionLink("Ver Objetivos", "Objetivos", "Administracion")
+    @Html.ActionLink("Relacionar Objetivos", "ObjetivosCrear", "Administracion")
+
         </div>
-        </div>
-        </form>
-    @*<form class="form-horizontal">
-        <div class="form-group">
-            <label for="rol_laboratorio" class="control-label col-xs-4">Lista de consecutivos</label>
-            <div class="col-xs-8">
-                <!--Table-->
-                <table id="tablePreview" class="table">
-                    <!--Table head-->
-                    <thead>
-                        <tr>
-                            <th>Codigo</th>
-                            <th>Nombre</th>
-                            <th>Fecha</th>
-                            <th>Proyecto</th>
-                            <th>Usuario Creador</th>
-                            <th></th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <!--Table head-->
-                    <!--Table body-->
-                    <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Probando Cura</td>
-                            <td>20/10/2019</td>
-                            <td>Cura VIH</td>
-                            <td>1</td>
-                            <td>@Html.ActionLink("Editar", "BitacoraCientificasEditar", "Administracion")</td>
-                            <td><a href="#">Eliminar</a></td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Cortando Dedos</td>
-                            <td>20/10/2019</td>
-                            <td>Cura Cancer</td>
-                            <td>2</td>
-                            <td>@Html.ActionLink("Editar", "BitacoraCientificasEditar", "Administracion")</td>
-                            <td><a href="#">Eliminar</a></td>
-                        </tr>
-                    </tbody>
-                    <!--Table body-->
-                </table>
-                <!--Table-->
-                @Html.ActionLink("Crear", "BitacoraCientificasCrear", "Administracion")
-            </div>
-        </div>
-    </form>*@
+    </div>
+</form>
+  

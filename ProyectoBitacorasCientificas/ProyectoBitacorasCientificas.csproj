@@ -252,6 +252,14 @@
     <Compile Include="Migrations\201907180441054_removingUserFromBitacoras.Designer.cs">
       <DependentUpon>201907180441054_removingUserFromBitacoras.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201907181430468_AddLaboratorioToObjetivos.cs" />
+    <Compile Include="Migrations\201907181430468_AddLaboratorioToObjetivos.Designer.cs">
+      <DependentUpon>201907181430468_AddLaboratorioToObjetivos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907181438244_RemoveLaboratorio_AddBitacora_ToObjetivos.cs" />
+    <Compile Include="Migrations\201907181438244_RemoveLaboratorio_AddBitacora_ToObjetivos.Designer.cs">
+      <DependentUpon>201907181438244_RemoveLaboratorio_AddBitacora_ToObjetivos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Bitacora.cs" />
@@ -284,6 +292,7 @@
     </Compile>
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\BitacorasForm.cs" />
+    <Compile Include="ViewModels\ObjetivosForm.cs" />
     <Compile Include="ViewModels\ProyectoRamaCientificaForm.cs" />
     <Compile Include="ViewModels\RamaCientificaForm.cs" />
   </ItemGroup>
@@ -366,6 +375,8 @@
     <Content Include="Views\Administracion\BitacorasCientificasCrear.cshtml" />
     <Content Include="Views\Language\Index.cshtml" />
     <Content Include="Views\Administracion\BitacorasCientificasForm.cshtml" />
+    <Content Include="Views\Administracion\Objetivos.cshtml" />
+    <Content Include="Views\Administracion\ObjetivosForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -431,6 +442,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201907180441054_removingUserFromBitacoras.resx">
       <DependentUpon>201907180441054_removingUserFromBitacoras.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907181430468_AddLaboratorioToObjetivos.resx">
+      <DependentUpon>201907181430468_AddLaboratorioToObjetivos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907181438244_RemoveLaboratorio_AddBitacora_ToObjetivos.resx">
+      <DependentUpon>201907181438244_RemoveLaboratorio_AddBitacora_ToObjetivos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Lang.en.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

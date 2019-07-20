@@ -13,6 +13,8 @@ namespace ProyectoBitacorasCientificas.Models
         public string objetivosEspecificos { get; set; }
         public string descripcion { get; set; }
         public string procedimientoExperimiento { get; set; }
+        public Bitacora Bitacora { get; set; }
+        public int BitacoraId { get; set; }
         public Equipo Equipo { get; set; }
         public int EquipoId { get; set; }
     }

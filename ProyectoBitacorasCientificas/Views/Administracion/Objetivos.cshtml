@@ -1,0 +1,61 @@
+﻿@model IEnumerable<ProyectoBitacorasCientificas.Models.Objetivos>
+
+@{
+    ViewBag.Title = "Objetivos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Objetivos</h2>
+
+<form class="form-horizontal">
+    <div class="form-group">
+        <div class="col-xs-8">
+
+            @if (Model != null)
+            {
+                if (!Model.Any())
+                {
+                    <p>No tenemos Objetivos</p>
+                }
+                else
+                {
+        
+                    <!--Table-->
+                    <table id="tablePreview" class="table">
+                        <!--Table head-->
+                        <thead>
+                        <tr>
+                            <th>Codigo</th>
+                            <th>Objetivo General</th>
+                            <th>Bitacora</th>
+                            <th>Equipo Relacionado</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach (var objetivo in Model)
+                        {
+                            <tr>
+                                <td>@objetivo.id</td>
+                                <td>@objetivo.objetivoGeneral</td>
+                                <td>@objetivo.Bitacora.nombreExperimento</td>
+                                <td>@objetivo.Equipo.modelo</td>
+                                <td>@Html.ActionLink("Editar", "ObjetivosEditar", "Administracion", new {id = objetivo.id}, null)</td>
+                                <td>@Html.ActionLink("Eliminar", "BitacorasEliminar", "Administracion", new {id = objetivo.id}, null)</td>
+                            </tr>
+                        }
+                        </tbody>
+                    </table>
+                }
+
+            }
+            @Html.ActionLink("Crear", "BitacorasCientificasCrear", "Administracion")
+            <br/>
+            @Html.ActionLink("Ver Objetivos", "Objetivos", "Administracion")
+            @Html.ActionLink("Relacionar Objetivos", "ObjetivosCrear", "Administracion")
+
+        </div>
+    </div>
+</form>
+

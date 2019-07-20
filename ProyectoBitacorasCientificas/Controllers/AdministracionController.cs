@@ -246,5 +246,79 @@ namespace ProyectoBitacorasCientificas.Controllers
 
         #endregion
 
+        #region ObjetivosCRUD
+
+        public ActionResult ObjetivosCrear()
+        {
+            var bitacorasList = _context.Bitacoras.ToList();
+            var equiposList = _context.Equipo.ToList();
+
+            var viewModel = new ObjetivosForm()
+            {
+                Bitacoras = bitacorasList, 
+                Equipos = equiposList
+            };
+
+            return View("ObjetivosForm", viewModel);
+        }
+
+        public ActionResult Objetivos()
+        {
+            var objetivos = _context.Objetivos
+                .Include(c => c.Bitacora)
+                .Include(c => c.Equipo)
+                .ToList();
+
+            return View(objetivos);
+        }
+
+        public ActionResult ObjetivosCrearEditar(Objetivos objetivos)
+        {
+            if (objetivos.id == 0)
+            {
+                _context.Objetivos.Add(objetivos);
+            }
+            else
+            {
+                var objetivoInDb = _context.Objetivos.Single(c => c.id == objetivos.id);
+                objetivoInDb.objetivoGeneral = objetivos.objetivoGeneral; 
+                objetivoInDb.objetivosEspecificos = objetivos.objetivosEspecificos; 
+                objetivoInDb.descripcion = objetivos.descripcion; 
+                objetivoInDb.procedimientoExperimiento = objetivos.procedimientoExperimiento; 
+                objetivoInDb.BitacoraId = objetivos.BitacoraId; 
+                objetivoInDb.EquipoId = objetivos.EquipoId; 
+
+            }
+
+            _context.SaveChanges();
+
+            return RedirectToAction("Objetivos", "Administracion"); 
+        }
+
+
+        public ActionResult ObjetivosEditar(int id)
+        {
+            var objetivo = _context.Objetivos.SingleOrDefault(c => c.id == id);
+            if (objetivo == null)
+                return HttpNotFound();
+
+            var viewModel = new ObjetivosForm()
+            {
+                Objetivos = objetivo,
+                Bitacoras = _context.Bitacoras.ToList(),
+                Equipos = _context.Equipo.ToList()
+            };
+
+            return View("ObjetivosForm", viewModel);
+        }
+
+
+
+
+
+        #endregion
+
+
+
     }
 }
