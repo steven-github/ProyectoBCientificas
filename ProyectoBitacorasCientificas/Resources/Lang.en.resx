@@ -124,7 +124,7 @@
     <value>Logs</value>
   </data>
   <data name="BitacorasCientificas" xml:space="preserve">
-    <value>Bitacoras Cientificas</value>
+    <value>Scientific Logs</value>
   </data>
   <data name="Consecutivos" xml:space="preserve">
     <value>Consecutives</value>
@@ -141,6 +141,12 @@
   <data name="Errores" xml:space="preserve">
     <value>Errors</value>
   </data>
+  <data name="Idiomas" xml:space="preserve">
+    <value>Languages</value>
+  </data>
+  <data name="Ingresar" xml:space="preserve">
+    <value>LogIn</value>
+  </data>
   <data name="Lenguaje" xml:space="preserve">
     <value>Language</value>
   </data>
@@ -152,6 +158,9 @@
   </data>
   <data name="RamasCientificas" xml:space="preserve">
     <value>Scientific Branches</value>
+  </data>
+  <data name="Registrarse" xml:space="preserve">
+    <value>Register</value>
   </data>
   <data name="RolesLaboratorio" xml:space="preserve">
     <value>Assing Labs Roles</value>

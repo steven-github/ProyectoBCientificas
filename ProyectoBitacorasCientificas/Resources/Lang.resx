@@ -141,6 +141,12 @@
   <data name="Errores" xml:space="preserve">
     <value>Errores</value>
   </data>
+  <data name="Idiomas" xml:space="preserve">
+    <value>Idiomas</value>
+  </data>
+  <data name="Ingresar" xml:space="preserve">
+    <value>Ingresar</value>
+  </data>
   <data name="Lenguaje" xml:space="preserve">
     <value>Lenguaje</value>
   </data>
@@ -152,6 +158,9 @@
   </data>
   <data name="RamasCientificas" xml:space="preserve">
     <value>Ramas Cientificas</value>
+  </data>
+  <data name="Registrarse" xml:space="preserve">
+    <value>Registrarse</value>
   </data>
   <data name="RolesLaboratorio" xml:space="preserve">
     <value>Asignar Roles Laboratorio</value>

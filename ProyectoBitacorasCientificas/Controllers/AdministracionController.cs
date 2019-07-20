@@ -173,20 +173,78 @@ namespace ProyectoBitacorasCientificas.Controllers
         }
         #endregion
 
-        // GET: Administracion/BitacorasCientificas
-        public ActionResult BitacorasCientificas()
-        {
-            return View();
-        }
+        #region BitacorasCRUD
+
         // GET: Administracion/BitacorasCientificasCrear
         public ActionResult BitacorasCientificasCrear()
         {
-            return View();
+            var proyectosList = _context.Proyectos.ToList();
+
+            var viewModel = new BitacorasForm()
+            {
+                Proyectos = proyectosList
+            };
+
+            return View("BitacorasCientificasForm",viewModel);
         }
-        // GET: Administracion/BitacorasCientificasEditar
-        public ActionResult BitacorasCientificasEditar()
+
+        public ActionResult BitacorasCrearEditar(Bitacora bitacora)
         {
-            return View();
+            if (bitacora.id == 0)
+            {
+                _context.Bitacoras.Add(bitacora);
+            }
+            else
+            {
+                var bitacoraInDb = _context.Bitacoras.Single(c => c.id == bitacora.id);
+
+                bitacoraInDb.nombreExperimento = bitacora.nombreExperimento;
+                bitacoraInDb.prefijo = bitacora.prefijo;
+                bitacoraInDb.Fecha = bitacora.Fecha;
+                bitacoraInDb.ProyectosId = bitacora.ProyectosId;
+            }
+
+            _context.SaveChanges();
+
+            return RedirectToAction("BitacorasCientificas", "Administracion");
         }
+
+        //GET: Administracion/BitacorasCientificas
+        public ActionResult BitacorasCientificas()
+        {
+            var bitacorasList = _context.Bitacoras
+                .Include(c => c.Proyectos)
+                .ToList();
+
+            return View(bitacorasList);
+        }
+        
+        // GET: Administracion/BitacorasCientificasEditar
+        public ActionResult BitacorasCientificasEditar(int id)
+        {
+            var bitacora = _context.Bitacoras.SingleOrDefault(c => c.id == id);
+            if (bitacora == null)
+                return HttpNotFound();
+
+            var viewModel = new BitacorasForm()
+            {
+                Bitacora = bitacora,
+                Proyectos = _context.Proyectos.ToList()
+            };
+
+            return View("BitacorasCientificasForm",viewModel);
+        }
+
+        public ActionResult BitacorasEliminar(int id)
+        {
+            var bitacora = _context.Bitacoras.SingleOrDefault(c => c.id == id);
+            _context.Bitacoras.Remove(bitacora);
+            _context.SaveChanges();
+            return RedirectToAction("BitacorasCientificas", "Administracion");
+        }
+
+
+        #endregion
+
     }
 }

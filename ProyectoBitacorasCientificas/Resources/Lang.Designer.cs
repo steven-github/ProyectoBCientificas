@@ -133,6 +133,24 @@ namespace ProyectoBitacorasCientificas.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Idiomas.
+        /// </summary>
+        public static string Idiomas {
+            get {
+                return ResourceManager.GetString("Idiomas", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ingresar.
+        /// </summary>
+        public static string Ingresar {
+            get {
+                return ResourceManager.GetString("Ingresar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Lenguaje.
         /// </summary>
         public static string Lenguaje {
@@ -165,6 +183,15 @@ namespace ProyectoBitacorasCientificas.Resources {
         public static string RamasCientificas {
             get {
                 return ResourceManager.GetString("RamasCientificas", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Registrarse.
+        /// </summary>
+        public static string Registrarse {
+            get {
+                return ResourceManager.GetString("Registrarse", resourceCulture);
             }
         }
         

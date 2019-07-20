@@ -25,7 +25,7 @@
         <li>@Html.ActionLink("About", "About", "Home")</li>
         <li>@Html.ActionLink("Contact", "Contact", "Home")</li>*@
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Seguridad <span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">@ProyectoBitacorasCientificas.Resources.Lang.Seguridad<span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="#">@Html.ActionLink(ProyectoBitacorasCientificas.Resources.Lang.CrearUsuario, "CrearUsuario", "Seguridad")</a></li>
                             <li><a href="#">@Html.ActionLink(ProyectoBitacorasCientificas.Resources.Lang.RolesUsuario, "RolesUsuario", "Seguridad")</a></li>
@@ -36,7 +36,7 @@
                         </ul>
                     </li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Administracion <span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">@ProyectoBitacorasCientificas.Resources.Lang.Administracion<span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="#">@Html.ActionLink(ProyectoBitacorasCientificas.Resources.Lang.RamasCientificas, "RamasCientificas", "Administracion")</a></li>
                             <li role="separator" class="divider"></li>
@@ -45,7 +45,7 @@
                         </ul>
                     </li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Consultas <span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">@ProyectoBitacorasCientificas.Resources.Lang.Consultas<span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="#">@Html.ActionLink(ProyectoBitacorasCientificas.Resources.Lang.Bitacoras, "Bitacoras", "Consulta")</a></li>
                             <li role="separator" class="divider"></li>
@@ -54,13 +54,13 @@
                         </ul>
                     </li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Idiomas <span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">@ProyectoBitacorasCientificas.Resources.Lang.Idiomas<span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="#">@Html.ActionLink("Spanish", "Change", "Language", new { LanguageAbbreviation = "es" }, null)</a></li>
                             <li><a href="#">@Html.ActionLink("English", "Change", "Language", new { LanguageAbbreviation = "en" }, null)</a></li>
                         </ul>
                     </li>
-                    @*<li>@Html.ActionLink(ProyectoBitacorasCientificas.Resources.Lang.Lenguaje, "Index", "Language")</li>*@
+                    @*<li>@Html.ActionLink(ProyectoBitacoraCientificas.Resources.Lang.Lenguaje, "Index", "Language")</li>*@
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
@@ -70,7 +70,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - ProyectoBitacorasCientificas</p>
+            <p>&copy; @DateTime.Now.Year - ProyectoBitacoraCientificas</p>
         </footer>
     </div>
 
