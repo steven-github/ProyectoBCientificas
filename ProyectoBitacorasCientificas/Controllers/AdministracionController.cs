@@ -313,8 +313,13 @@ namespace ProyectoBitacorasCientificas.Controllers
         }
 
 
-
-
+        public ActionResult ObjetivosEliminar(int id)
+        {
+            var objetivo = _context.Objetivos.SingleOrDefault(c => c.id == id);
+            _context.Objetivos.Remove(objetivo);
+            _context.SaveChanges();
+            return RedirectToAction("Objetivos", "Administracion");
+        }
 
         #endregion
 
