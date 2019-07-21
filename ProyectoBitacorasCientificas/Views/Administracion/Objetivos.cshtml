@@ -42,7 +42,7 @@
                                 <td>@objetivo.Bitacora.nombreExperimento</td>
                                 <td>@objetivo.Equipo.modelo</td>
                                 <td>@Html.ActionLink("Editar", "ObjetivosEditar", "Administracion", new {id = objetivo.id}, null)</td>
-                                <td>@Html.ActionLink("Eliminar", "BitacorasEliminar", "Administracion", new {id = objetivo.id}, null)</td>
+                                <td>@Html.ActionLink("Eliminar", "ObjetivosEliminar", "Administracion", new {id = objetivo.id}, null)</td>
                             </tr>
                         }
                         </tbody>
@@ -50,10 +50,7 @@
                 }
 
             }
-            @Html.ActionLink("Crear", "BitacorasCientificasCrear", "Administracion")
-            <br/>
-            @Html.ActionLink("Ver Objetivos", "Objetivos", "Administracion")
-            @Html.ActionLink("Relacionar Objetivos", "ObjetivosCrear", "Administracion")
+            @Html.ActionLink("Crear", "ObjetivosCrear", "Administracion")
 
         </div>
     </div>

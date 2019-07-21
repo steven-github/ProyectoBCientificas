@@ -260,6 +260,10 @@
     <Compile Include="Migrations\201907181438244_RemoveLaboratorio_AddBitacora_ToObjetivos.Designer.cs">
       <DependentUpon>201907181438244_RemoveLaboratorio_AddBitacora_ToObjetivos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201907201718181_addBitacoras.cs" />
+    <Compile Include="Migrations\201907201718181_addBitacoras.Designer.cs">
+      <DependentUpon>201907201718181_addBitacoras.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Bitacora.cs" />
@@ -448,6 +452,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201907181438244_RemoveLaboratorio_AddBitacora_ToObjetivos.resx">
       <DependentUpon>201907181438244_RemoveLaboratorio_AddBitacora_ToObjetivos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907201718181_addBitacoras.resx">
+      <DependentUpon>201907201718181_addBitacoras.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Lang.en.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
