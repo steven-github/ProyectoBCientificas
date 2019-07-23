@@ -16,13 +16,6 @@ namespace ProyectoBitacorasCientificas.Models
             // Add custom user claims here
             return userIdentity;
         }
-
-        // Custom properties
-        public string nombre { get; set; }
-        public string primerApellido { get; set; }
-        public string segundoApellido { get; set; }
-        public string telefono { get; set; }
-        public string nickName { get; set; }
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
