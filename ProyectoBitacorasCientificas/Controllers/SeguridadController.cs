@@ -3,12 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 using ProyectoBitacorasCientificas.Models;
+using ProyectoBitacorasCientificas.ViewModels;
 
 namespace ProyectoBitacorasCientificas.Controllers
 {
     public class SeguridadController : Controller
     {
+        private ApplicationDbContext _context;
+
+        public SeguridadController()
+        {
+            _context = new ApplicationDbContext();
+        }
         // GET: Seguridad
         public ActionResult Index()
         {
@@ -16,12 +25,7 @@ namespace ProyectoBitacorasCientificas.Controllers
         }
 
         #region UsersCRUD 
-        // GET: Seguridad/CrearUsuario
-        [Authorize(Roles = RoleName.CanManageAdministration + "," + RoleName.CanManageSecurity)]
-        public ActionResult CrearUsuario()
-        {
-            return View();
-        }
+        
 
         [Authorize(Roles = RoleName.CanManageAdministration + "," + RoleName.CanManageSecurity)]
         public ActionResult Usuarios()
@@ -33,9 +37,19 @@ namespace ProyectoBitacorasCientificas.Controllers
 
         // GET: Seguridad/RolesUsuario
         [Authorize(Roles = RoleName.CanManageAdministration)]
-        public ActionResult RolesUsuario()
+        public ActionResult RolesUsuario(RolesUsuario rolesUsuario)
         {
-            return View();
+            var usersList = _context.Users.ToList(); 
+            var rolesList = _context.Roles.ToList();
+
+            var viewModel = new UserRoleViewModel()
+            {
+                ApplicationUsers = usersList,
+                IdentityRoles = rolesList
+            };
+            var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(_context));
+            //UserManager.AddToRole(rolesUsuario.ApplicationUserId.ToString(), rolesUsuario.IdentityRoleId.ToString());
+            return View("RolesUsuario",viewModel);
         }
         // GET: Seguridad/RolesLaboratorio
         [Authorize(Roles = RoleName.CanManageAdministration)]

@@ -276,6 +276,14 @@
     <Compile Include="Migrations\201907230209124_seedingAllRoles.Designer.cs">
       <DependentUpon>201907230209124_seedingAllRoles.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201907231941174_AddApplicationUserToBitacoras.cs" />
+    <Compile Include="Migrations\201907231941174_AddApplicationUserToBitacoras.Designer.cs">
+      <DependentUpon>201907231941174_AddApplicationUserToBitacoras.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907232035396_addUserCustomProperties.cs" />
+    <Compile Include="Migrations\201907232035396_addUserCustomProperties.Designer.cs">
+      <DependentUpon>201907232035396_addUserCustomProperties.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Bitacora.cs" />
@@ -293,6 +301,7 @@
     <Compile Include="Models\RamaCientifica.cs" />
     <Compile Include="Models\RoleName.cs" />
     <Compile Include="Models\RolesLaboratorio.cs" />
+    <Compile Include="Models\RolesUsuario.cs" />
     <Compile Include="Models\Tarjeta.cs" />
     <Compile Include="Models\TipoRamaCientifica.cs" />
     <Compile Include="Models\Transaccion.cs" />
@@ -312,6 +321,7 @@
     <Compile Include="ViewModels\ObjetivosForm.cs" />
     <Compile Include="ViewModels\ProyectoRamaCientificaForm.cs" />
     <Compile Include="ViewModels\RamaCientificaForm.cs" />
+    <Compile Include="ViewModels\UserRoleViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-cyborg.css" />
@@ -478,6 +488,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201907230209124_seedingAllRoles.resx">
       <DependentUpon>201907230209124_seedingAllRoles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907231941174_AddApplicationUserToBitacoras.resx">
+      <DependentUpon>201907231941174_AddApplicationUserToBitacoras.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907232035396_addUserCustomProperties.resx">
+      <DependentUpon>201907232035396_addUserCustomProperties.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Lang.en.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

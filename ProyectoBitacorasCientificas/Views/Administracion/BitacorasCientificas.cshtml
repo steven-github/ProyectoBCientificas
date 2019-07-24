@@ -29,7 +29,7 @@
                         <th>Nombre</th>
                         <th>Fecha</th>
                         <th>Proyecto</th>
-                       @* <th>Usuario Creador</th>*@
+                        <th>Usuario Creador</th>
                         <th></th>
                         <th></th>
                     </tr>
@@ -42,6 +42,7 @@
                             <td>@bitacoras.nombreExperimento</td>
                             <td>@bitacoras.Fecha</td>
                             <td>@bitacoras.Proyectos.nombre</td>
+                            @*<td>@bitacoras.ApplicationUser.Email</td>*@
                             <td>@Html.ActionLink("Editar", "BitacorasCientificasEditar", "Administracion", new {id = bitacoras.id}, null)</td>
                             <td>@Html.ActionLink("Eliminar", "BitacorasEliminar", "Administracion", new {id = bitacoras.id}, null)</td>
                         </tr>

@@ -65,6 +65,25 @@ namespace ProyectoBitacorasCientificas.Models
     public class RegisterViewModel
     {
         [Required]
+        [Display(Name = "Nombre")]
+        public string nombre { get; set; }
+
+        [Required]
+        [Display(Name = "Primer Apellido")]
+        public string primerApellido { get; set; }
+
+        [Required]
+        [Display(Name = "Segundo Apellido")]
+        public string segundoApellido { get; set; }
+
+        [Display(Name = "Telefono")]
+        public string telefono { get; set; }
+
+        [Required]
+        [Display(Name = "NickName")]
+        public string nickname { get; set; }
+
+        [Required]
         [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }

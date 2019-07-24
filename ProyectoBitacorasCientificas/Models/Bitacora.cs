@@ -13,5 +13,7 @@ namespace ProyectoBitacorasCientificas.Models
         public string Fecha { get; set; }
         public Proyectos Proyectos { get; set; }
         public int ProyectosId { get; set; }
+        public virtual ApplicationUser ApplicationUser { get; set; }
+        public int ApplicationUserId { get; set; }
     }
 }
