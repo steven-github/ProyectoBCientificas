@@ -42,6 +42,7 @@ namespace ProyectoBitacorasCientificas.Models
             return new ApplicationDbContext();
         }
 
+        public DbSet<TipoRolLaboratorio> TipoRolLaboratorio { get; set; }
         public DbSet<RolesLaboratorio> RolesLaboratorio { get; set; }
         public DbSet<NivelAcademico> NivelAcademicos { get; set; }
         public DbSet<Laboratorio> Laboratorios { get; set; }

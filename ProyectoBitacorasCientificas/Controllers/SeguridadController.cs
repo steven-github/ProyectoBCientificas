@@ -51,12 +51,41 @@ namespace ProyectoBitacorasCientificas.Controllers
             //UserManager.AddToRole(rolesUsuario.ApplicationUserId.ToString(), rolesUsuario.IdentityRoleId.ToString());
             return View("RolesUsuario",viewModel);
         }
-        // GET: Seguridad/RolesLaboratorio
-        [Authorize(Roles = RoleName.CanManageAdministration)]
-        public ActionResult RolesLaboratorio()
+
+        #region RolesUsuario
+
+        public ActionResult RolesLaboratorioCrear()
         {
-            return View();
+            var userList = _context.Users.ToList();
+            var labList = _context.Laboratorios.ToList();
+            var tipoRolList = _context.TipoRolLaboratorio.ToList();
+            var puestosList = _context.Puestos.ToList();
+
+            var viewModel = new RolLabForm()
+            {
+                Users = userList,
+                Laboratorios = labList,
+                TipoRolLaboratorios = tipoRolList,
+                Puestos = puestosList
+            };
+
+            return View("RolesLaboratorioAsignar", viewModel); 
         }
+
+        [HttpPost]
+        [Authorize(Roles = RoleName.CanManageAdministration + "," + RoleName.CanManageConsecutives)]
+        public ActionResult RolesLaboratorioAsignar(RolesLaboratorio rolLaboratorio)
+        {
+            _context.RolesLaboratorio.Add(rolLaboratorio);
+            _context.SaveChanges();
+            return RedirectToAction("RolesUsuario", "Seguridad"); 
+        }
+
+        
+
+        #endregion
+        // GET: Seguridad/RolesLaboratorioAsignar
+
         // GET: Seguridad/PuestosRoles
         [Authorize(Roles = RoleName.CanManageAdministration)]
         public ActionResult PuestosRoles()

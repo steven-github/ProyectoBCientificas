@@ -5,7 +5,7 @@ using System.Web;
 
 namespace ProyectoBitacorasCientificas.Models
 {
-    public class Puesto
+    public class TipoRolLaboratorio
     {
         public int id { get; set; }
         public string nombre { get; set; }

@@ -284,6 +284,22 @@
     <Compile Include="Migrations\201907232035396_addUserCustomProperties.Designer.cs">
       <DependentUpon>201907232035396_addUserCustomProperties.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201907242153023_ModifiyingModelForRolesLab.cs" />
+    <Compile Include="Migrations\201907242153023_ModifiyingModelForRolesLab.Designer.cs">
+      <DependentUpon>201907242153023_ModifiyingModelForRolesLab.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907242154467_SeedDataForRolesLab.cs" />
+    <Compile Include="Migrations\201907242154467_SeedDataForRolesLab.Designer.cs">
+      <DependentUpon>201907242154467_SeedDataForRolesLab.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907242250404_removingUserFromRolesLab.cs" />
+    <Compile Include="Migrations\201907242250404_removingUserFromRolesLab.Designer.cs">
+      <DependentUpon>201907242250404_removingUserFromRolesLab.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907242303385_addUserForeignKeyToRolesLab.cs" />
+    <Compile Include="Migrations\201907242303385_addUserForeignKeyToRolesLab.Designer.cs">
+      <DependentUpon>201907242303385_addUserForeignKeyToRolesLab.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Bitacora.cs" />
@@ -304,6 +320,7 @@
     <Compile Include="Models\RolesUsuario.cs" />
     <Compile Include="Models\Tarjeta.cs" />
     <Compile Include="Models\TipoRamaCientifica.cs" />
+    <Compile Include="Models\TipoRolLaboratorio.cs" />
     <Compile Include="Models\Transaccion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\Lang.en.Designer.cs">
@@ -321,6 +338,7 @@
     <Compile Include="ViewModels\ObjetivosForm.cs" />
     <Compile Include="ViewModels\ProyectoRamaCientificaForm.cs" />
     <Compile Include="ViewModels\RamaCientificaForm.cs" />
+    <Compile Include="ViewModels\RolLabForm.cs" />
     <Compile Include="ViewModels\UserRoleViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -384,7 +402,7 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Seguridad\CrearUsuario.cshtml" />
-    <Content Include="Views\Seguridad\RolesLaboratorio.cshtml" />
+    <Content Include="Views\Seguridad\RolesLaboratorioAsignar.cshtml" />
     <Content Include="Views\Seguridad\RolesUsuario.cshtml" />
     <Content Include="Views\Seguridad\PuestosRoles.cshtml" />
     <Content Include="Views\Seguridad\Consecutivos.cshtml" />
@@ -494,6 +512,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201907232035396_addUserCustomProperties.resx">
       <DependentUpon>201907232035396_addUserCustomProperties.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907242153023_ModifiyingModelForRolesLab.resx">
+      <DependentUpon>201907242153023_ModifiyingModelForRolesLab.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907242154467_SeedDataForRolesLab.resx">
+      <DependentUpon>201907242154467_SeedDataForRolesLab.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907242250404_removingUserFromRolesLab.resx">
+      <DependentUpon>201907242250404_removingUserFromRolesLab.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907242303385_addUserForeignKeyToRolesLab.resx">
+      <DependentUpon>201907242303385_addUserForeignKeyToRolesLab.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Lang.en.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
