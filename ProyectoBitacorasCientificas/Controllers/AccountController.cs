@@ -152,7 +152,16 @@ namespace ProyectoBitacorasCientificas.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser
+                {
+                    UserName = model.Email,
+                    Email = model.Email, 
+                    nombre = model.nombre,
+                    primerApellido = model.primerApellido,
+                    segundoApellido = model.segundoApellido,
+                    telefono = model.telefono,
+                    nickname = model.nickname
+                };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {

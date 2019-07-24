@@ -202,10 +202,12 @@ namespace ProyectoBitacorasCientificas.Controllers
         public ActionResult BitacorasCientificasCrear()
         {
             var proyectosList = _context.Proyectos.ToList();
+            var userList = _context.Users.ToList();
 
             var viewModel = new BitacorasForm()
             {
-                Proyectos = proyectosList
+                Proyectos = proyectosList,
+                Users = userList
             };
 
             return View("BitacorasCientificasForm",viewModel);
@@ -226,6 +228,7 @@ namespace ProyectoBitacorasCientificas.Controllers
                 bitacoraInDb.prefijo = bitacora.prefijo;
                 bitacoraInDb.Fecha = bitacora.Fecha;
                 bitacoraInDb.ProyectosId = bitacora.ProyectosId;
+                bitacoraInDb.ApplicationUserId = bitacora.ApplicationUserId;
             }
 
             _context.SaveChanges();
@@ -240,6 +243,7 @@ namespace ProyectoBitacorasCientificas.Controllers
             {
                 var bitacorasList = _context.Bitacoras
                     .Include(c => c.Proyectos)
+                    .Include(c => c.ApplicationUser)
                     .ToList();
 
                 return View(bitacorasList);
@@ -262,7 +266,8 @@ namespace ProyectoBitacorasCientificas.Controllers
             var viewModel = new BitacorasForm()
             {
                 Bitacora = bitacora,
-                Proyectos = _context.Proyectos.ToList()
+                Proyectos = _context.Proyectos.ToList(),
+                Users =  _context.Users.ToList()
             };
 
             return View("BitacorasCientificasForm",viewModel);
@@ -366,8 +371,5 @@ namespace ProyectoBitacorasCientificas.Controllers
         }
 
         #endregion
-
-
-
     }
 }
