@@ -29,6 +29,25 @@ namespace ProyectoBitacorasCientificas.Controllers
             return View();
         }
 
+        #region Bitacoras Registro
+
+        public ActionResult BitacorasRegistroCrear(
+            string descripcion, string entidadRelacionada
+        )
+        {
+            var bitacoraRegistro = new BitacoraRegistro
+            {
+                descripcion = descripcion,
+                entidadRelacionada = entidadRelacionada
+            };
+            _context.BitacoraRegistros.Add(bitacoraRegistro);
+            _context.SaveChanges();
+            return new EmptyResult();
+        }
+
+        #endregion
+
+
         #region RamasCientificasCRUD
 
         // GET: Administracion/RamasCientificasForm
@@ -66,9 +85,11 @@ namespace ProyectoBitacorasCientificas.Controllers
          [Authorize(Roles = RoleName.CanManageAdministration + "," + RoleName.CanManageMantenimiento)]
         public ActionResult RamaCientificasCrearEditar(RamaCientifica ramaCientifica)
         {
+            var descripcion = ""; 
             if (ramaCientifica.id == 0)
             {
                 _context.RamaCientifica.Add(ramaCientifica);
+                descripcion = "Rama Cientifica Creada"; 
             }
             else
             {
@@ -78,10 +99,15 @@ namespace ProyectoBitacorasCientificas.Controllers
                 ramaCientificaInDb.nombre = ramaCientifica.nombre;
                 ramaCientificaInDb.TipoRamaCientificaId = ramaCientifica.TipoRamaCientificaId;
 
+                descripcion = "Rama Cientifica id:" + ramaCientificaInDb.id + " Editada";
             }
 
             _context.SaveChanges();
+
+            
+            BitacorasRegistroCrear(descripcion, "Ramas Cientificas"); 
             return RedirectToAction("RamasCientificas", "Administracion");
+             
         }
 
         // GET: Administracion/RamasCientificasEditar
@@ -109,6 +135,9 @@ namespace ProyectoBitacorasCientificas.Controllers
             var ramaCientifica = _context.RamaCientifica.SingleOrDefault(c => c.id == id);
             _context.RamaCientifica.Remove(ramaCientifica);
             _context.SaveChanges();
+
+            var descripcion = "Rama Cientifica id:" + id + " Eliminado";
+            BitacorasRegistroCrear(descripcion, "Ramas Cientificas");
             return RedirectToAction("RamasCientificas", "Administracion");
         }
 
@@ -148,9 +177,11 @@ namespace ProyectoBitacorasCientificas.Controllers
         [Authorize(Roles = RoleName.CanManageAdministration + "," + RoleName.CanManageMantenimiento)]
         public ActionResult ProyectosCrearEditar(Proyectos proyectos)
         {
+            var descripcion = "";
             if (proyectos.id == 0)
             {
-                _context.Proyectos.Add(proyectos); 
+                _context.Proyectos.Add(proyectos);
+                descripcion = "Proyecto Creado";
             }
             else
             {
@@ -159,9 +190,12 @@ namespace ProyectoBitacorasCientificas.Controllers
                 proyectoInDb.prefijo = proyectos.prefijo;
                 proyectoInDb.nombre = proyectos.nombre;
                 proyectoInDb.RamaCientificaId = proyectos.RamaCientificaId;
+
+                descripcion = "Proyecto id:" + proyectos.id + " Editado";
             }
 
             _context.SaveChanges();
+            BitacorasRegistroCrear(descripcion, "Proyecto");
             return RedirectToAction("Proyectos", "Administracion");
         }
 
@@ -191,6 +225,8 @@ namespace ProyectoBitacorasCientificas.Controllers
             var proyecto = _context.Proyectos.SingleOrDefault(c => c.id == id);
             _context.Proyectos.Remove(proyecto);
             _context.SaveChanges();
+            var descripcion = "Proyecto id:" + id + " Eliminado";
+            BitacorasRegistroCrear(descripcion, "Proyecto");
             return RedirectToAction("Proyectos", "Administracion");
         }
         #endregion
@@ -216,9 +252,11 @@ namespace ProyectoBitacorasCientificas.Controllers
         [Authorize(Roles = RoleName.CanManageAdministration + "," + RoleName.CanManageMantenimiento)]
         public ActionResult BitacorasCrearEditar(Bitacora bitacora)
         {
+            var descripcion = "";
             if (bitacora.id == 0)
             {
                 _context.Bitacoras.Add(bitacora);
+                descripcion = "Bitacora Experimental Creada";
             }
             else
             {
@@ -229,9 +267,13 @@ namespace ProyectoBitacorasCientificas.Controllers
                 bitacoraInDb.Fecha = bitacora.Fecha;
                 bitacoraInDb.ProyectosId = bitacora.ProyectosId;
                 bitacoraInDb.ApplicationUserId = bitacora.ApplicationUserId;
+
+                descripcion = "Bitacora Experimental id:" + bitacora.id + " Editada";
             }
 
             _context.SaveChanges();
+
+            BitacorasRegistroCrear(descripcion, "Bitacora Experimental");
 
             return RedirectToAction("BitacorasCientificas", "Administracion");
         }
@@ -279,6 +321,7 @@ namespace ProyectoBitacorasCientificas.Controllers
             var bitacora = _context.Bitacoras.SingleOrDefault(c => c.id == id);
             _context.Bitacoras.Remove(bitacora);
             _context.SaveChanges();
+            var descripcion = "Bitacora Experimental id:" + id + " Eliminado";
             return RedirectToAction("BitacorasCientificas", "Administracion");
         }
 
@@ -323,9 +366,12 @@ namespace ProyectoBitacorasCientificas.Controllers
          [Authorize(Roles = RoleName.CanManageAdministration + "," + RoleName.CanManageMantenimiento)]
         public ActionResult ObjetivosCrearEditar(Objetivos objetivos)
         {
+            var descripcion = "";
             if (objetivos.id == 0)
             {
                 _context.Objetivos.Add(objetivos);
+
+                descripcion = "Objetivo Creada";
             }
             else
             {
@@ -335,12 +381,14 @@ namespace ProyectoBitacorasCientificas.Controllers
                 objetivoInDb.descripcion = objetivos.descripcion; 
                 objetivoInDb.procedimientoExperimiento = objetivos.procedimientoExperimiento; 
                 objetivoInDb.BitacoraId = objetivos.BitacoraId; 
-                objetivoInDb.EquipoId = objetivos.EquipoId; 
+                objetivoInDb.EquipoId = objetivos.EquipoId;
 
+                descripcion = "Objetivo id:" + objetivos.id + " Editada";
             }
 
             _context.SaveChanges();
 
+            BitacorasRegistroCrear(descripcion, "Objetivos");
             return RedirectToAction("Objetivos", "Administracion"); 
         }
 
@@ -367,6 +415,11 @@ namespace ProyectoBitacorasCientificas.Controllers
             var objetivo = _context.Objetivos.SingleOrDefault(c => c.id == id);
             _context.Objetivos.Remove(objetivo);
             _context.SaveChanges();
+
+            var descripcion = "Objetivo id:" + id + " Eliminado";
+
+            BitacorasRegistroCrear(descripcion, "Objetivos");
+
             return RedirectToAction("Objetivos", "Administracion");
         }
 

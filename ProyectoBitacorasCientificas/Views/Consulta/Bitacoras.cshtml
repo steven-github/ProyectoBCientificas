@@ -1,4 +1,4 @@
-﻿
+﻿@model IEnumerable<ProyectoBitacorasCientificas.Models.BitacoraRegistro>
 @{
     ViewBag.Title = "Bitacora";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -6,3 +6,45 @@
 
 <h2>Bitacora</h2>
 
+<form class="form-horizontal">
+    <div class="form-group">
+        <div class="col-xs-8">
+
+            @if (Model != null)
+            {
+                if (!Model.Any())
+                {
+                    <p>No tenemos bitacoras registro</p>
+                }
+                else
+                {
+
+                    <!--Table-->
+                    <table id="tablePreview" class="table">
+                        <!--Table head-->
+                        <thead>
+                            <tr>
+                                <th>Codigo</th>
+                                <th>Descripcion</th>
+                                <th>Entidad Relacionada</th>
+                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var bitacora in Model)
+                            {
+                                <tr>
+                                    <td>@bitacora.id</td>
+                                    <td>@bitacora.descripcion</td>
+                                    <td>@bitacora.entidadRelacionada</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                }
+
+            }
+
+        </div>
+    </div>
+</form>

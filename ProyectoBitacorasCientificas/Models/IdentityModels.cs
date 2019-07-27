@@ -54,6 +54,7 @@ namespace ProyectoBitacorasCientificas.Models
         public DbSet<Equipo> Equipo { get; set; }
         public DbSet<Objetivos> Objetivos { get; set; }
         public DbSet<Factura> Facturas { get; set; }
+        public DbSet<BitacoraRegistro> BitacoraRegistros { get; set; }
 
     }
 }

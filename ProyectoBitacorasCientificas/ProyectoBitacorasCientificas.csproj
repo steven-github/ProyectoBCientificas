@@ -308,9 +308,14 @@
     <Compile Include="Migrations\201907270217033_AddingAllColumnsToRolesLab.Designer.cs">
       <DependentUpon>201907270217033_AddingAllColumnsToRolesLab.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201907270437594_AddBitacorasRegistro.cs" />
+    <Compile Include="Migrations\201907270437594_AddBitacorasRegistro.Designer.cs">
+      <DependentUpon>201907270437594_AddBitacorasRegistro.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Bitacora.cs" />
+    <Compile Include="Models\BitacoraRegistro.cs" />
     <Compile Include="Models\CompraExperimento.cs" />
     <Compile Include="Models\EasyPay.cs" />
     <Compile Include="Models\Equipo.cs" />
@@ -539,6 +544,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201907270217033_AddingAllColumnsToRolesLab.resx">
       <DependentUpon>201907270217033_AddingAllColumnsToRolesLab.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907270437594_AddBitacorasRegistro.resx">
+      <DependentUpon>201907270437594_AddBitacorasRegistro.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Lang.en.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

@@ -9,17 +9,53 @@ namespace ProyectoBitacorasCientificas.Controllers
 {
     public class ConsultaController : Controller
     {
+
+        private ApplicationDbContext _context;
+
+        public ConsultaController()
+        {
+            _context = new ApplicationDbContext();
+        }
+
         // GET: Consulta
         public ActionResult Index()
         {
             return View();
         }
-        // GET: Consulta/Bitacora
-        [Authorize(Roles = RoleName.CanManageAdministration + "," + RoleName.CanManageConsulting)]
+
+        #region BitacoraRegistro
+
+        public ActionResult BitacorasRegistroCrear(
+            string descripcion, string entidadRelacionada
+        )
+        {
+            var bitacoraRegistro = new BitacoraRegistro
+            {
+                descripcion = descripcion,
+                entidadRelacionada = entidadRelacionada
+            };
+            _context.BitacoraRegistros.Add(bitacoraRegistro);
+            _context.SaveChanges();
+            return new EmptyResult(); 
+        }
+
+            // GET: Consulta/Bitacora
         public ActionResult Bitacoras()
         {
-            return View();
+            if (User.IsInRole(RoleName.CanManageAdministration) || User.IsInRole(RoleName.CanManageConsulting))
+            {
+                var bitacorasRegistro = _context.BitacoraRegistros.ToList();
+                return View(bitacorasRegistro);
+            }
+            else
+            {
+                return View("RestrictedAccess");
+            }
         }
+
+
+        #endregion
+
         // GET: Consulta/Errores
         [Authorize(Roles = RoleName.CanManageAdministration + "," + RoleName.CanManageConsulting)]
         public ActionResult Errores()
