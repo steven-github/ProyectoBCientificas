@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -76,12 +77,63 @@ namespace ProyectoBitacorasCientificas.Controllers
         [Authorize(Roles = RoleName.CanManageAdministration + "," + RoleName.CanManageConsecutives)]
         public ActionResult RolesLaboratorioAsignar(RolesLaboratorio rolLaboratorio)
         {
-            _context.RolesLaboratorio.Add(rolLaboratorio);
+            if (rolLaboratorio.id == 0)
+            {
+                _context.RolesLaboratorio.Add(rolLaboratorio);
+            }
+            else
+            {
+                var rolInDb = _context.RolesLaboratorio.Single(c => c.id == rolLaboratorio.id);
+                rolInDb.LaboratorioId = rolLaboratorio.LaboratorioId; 
+            }
             _context.SaveChanges();
             return RedirectToAction("RolesUsuario", "Seguridad"); 
         }
 
-        
+        public ActionResult RolesLaboratorios()
+        {
+            if (User.IsInRole(RoleName.CanManageAdministration) || User.IsInRole(RoleName.CanManageSecurity))
+            {
+                var rolesList = _context.RolesLaboratorio
+                    .Include(c => c.Laboratorio)
+                    .Include(c => c.ApplicationUser)
+                    .Include(c => c.TipoRolLaboratorio)
+                    .Include(c => c.Puesto)
+                    .ToList();
+                return View(rolesList);
+            }
+            else
+            {
+                return View("RestrictedAccess"); 
+            }
+        }
+
+        public ActionResult RolesLaboratorioEditar(int id)
+        {
+            var rol = _context.RolesLaboratorio.SingleOrDefault(c => c.id == id);
+            if (rol == null)
+                return HttpNotFound();
+
+            var viewModel = new RolLabForm()
+            {
+                RolesLaboratorio = rol,
+                Laboratorios = _context.Laboratorios.ToList(),
+                Users = _context.Users.ToList(), 
+                TipoRolLaboratorios = _context.TipoRolLaboratorio.ToList(), 
+                Puestos = _context.Puestos.ToList()
+            };
+
+            return View("RolesLaboratorioAsignar", viewModel); 
+        }
+
+        public ActionResult RolesLaboratorioEliminar(int id)
+        {
+            var rol = _context.RolesLaboratorio.SingleOrDefault(c => c.id == id);
+            _context.RolesLaboratorio.Remove(rol);
+            _context.SaveChanges();
+            return RedirectToAction("RolesLaboratorios", "Seguridad"); 
+        }
+
 
         #endregion
         // GET: Seguridad/RolesLaboratorioAsignar

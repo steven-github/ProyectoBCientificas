@@ -300,6 +300,14 @@
     <Compile Include="Migrations\201907242303385_addUserForeignKeyToRolesLab.Designer.cs">
       <DependentUpon>201907242303385_addUserForeignKeyToRolesLab.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201907270154030_NormalizingDbContext.cs" />
+    <Compile Include="Migrations\201907270154030_NormalizingDbContext.Designer.cs">
+      <DependentUpon>201907270154030_NormalizingDbContext.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907270217033_AddingAllColumnsToRolesLab.cs" />
+    <Compile Include="Migrations\201907270217033_AddingAllColumnsToRolesLab.Designer.cs">
+      <DependentUpon>201907270217033_AddingAllColumnsToRolesLab.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Bitacora.cs" />
@@ -423,6 +431,7 @@
     <Content Include="Views\Administracion\Objetivos.cshtml" />
     <Content Include="Views\Administracion\ObjetivosForm.cshtml" />
     <Content Include="Views\Shared\RestrictedAccess.cshtml" />
+    <Content Include="Views\Seguridad\RolesLaboratorios.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -524,6 +533,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201907242303385_addUserForeignKeyToRolesLab.resx">
       <DependentUpon>201907242303385_addUserForeignKeyToRolesLab.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907270154030_NormalizingDbContext.resx">
+      <DependentUpon>201907270154030_NormalizingDbContext.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907270217033_AddingAllColumnsToRolesLab.resx">
+      <DependentUpon>201907270217033_AddingAllColumnsToRolesLab.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Lang.en.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
