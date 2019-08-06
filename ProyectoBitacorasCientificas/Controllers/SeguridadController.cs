@@ -35,59 +35,36 @@ namespace ProyectoBitacorasCientificas.Controllers
         }
         #endregion
 
+        #region RolesLaboratorio
 
-        // GET: Seguridad/RolesUsuario
-        [Authorize(Roles = RoleName.CanManageAdministration)]
-        public ActionResult RolesUsuario(RolesUsuario rolesUsuario)
-        {
-            var usersList = _context.Users.ToList(); 
-            var rolesList = _context.Roles.ToList();
-
-            var viewModel = new UserRoleViewModel()
-            {
-                ApplicationUsers = usersList,
-                IdentityRoles = rolesList
-            };
-            var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(_context));
-            //UserManager.AddToRole(rolesUsuario.ApplicationUserId.ToString(), rolesUsuario.IdentityRoleId.ToString());
-            return View("RolesUsuario",viewModel);
-        }
-
-        #region RolesUsuario
-
+        [Authorize(Roles = RoleName.CanManageAdministration + "," + RoleName.CanManageSecurity)]
         public ActionResult RolesLaboratorioCrear()
         {
+            var labList = _context.Labs.ToList();
             var userList = _context.Users.ToList();
-            var labList = _context.Laboratorios.ToList();
-            var tipoRolList = _context.TipoRolLaboratorio.ToList();
-            var puestosList = _context.Puestos.ToList();
 
-            var viewModel = new RolLabForm()
+            var viewModel = new RolesLaboratorioForm()
             {
-                Users = userList,
-                Laboratorios = labList,
-                TipoRolLaboratorios = tipoRolList,
-                Puestos = puestosList
+                Labs = labList, 
+                ApplicationUsers = userList
+
             };
 
-            return View("RolesLaboratorioAsignar", viewModel); 
+            return View("RolesLaboratorioForm", viewModel); 
         }
 
-        [HttpPost]
-        [Authorize(Roles = RoleName.CanManageAdministration + "," + RoleName.CanManageConsecutives)]
-        public ActionResult RolesLaboratorioAsignar(RolesLaboratorio rolLaboratorio)
+        [Authorize(Roles = RoleName.CanManageAdministration + "," + RoleName.CanManageSecurity)]
+        public ActionResult RolesLaboratorioCrearEditar(RolesLaboratorio rolesLaboratorio)
         {
-            if (rolLaboratorio.id == 0)
+            if (rolesLaboratorio.id == 0)
             {
-                _context.RolesLaboratorio.Add(rolLaboratorio);
+                _context.RolesLaboratorio.Add(rolesLaboratorio); 
             }
-            else
-            {
-                var rolInDb = _context.RolesLaboratorio.Single(c => c.id == rolLaboratorio.id);
-                rolInDb.LaboratorioId = rolLaboratorio.LaboratorioId; 
-            }
+
             _context.SaveChanges();
-            return RedirectToAction("RolesUsuario", "Seguridad"); 
+
+            return RedirectToAction("RolesLaboratorios", "Seguridad"); 
+
         }
 
         public ActionResult RolesLaboratorios()
@@ -95,16 +72,16 @@ namespace ProyectoBitacorasCientificas.Controllers
             if (User.IsInRole(RoleName.CanManageAdministration) || User.IsInRole(RoleName.CanManageSecurity))
             {
                 var rolesList = _context.RolesLaboratorio
-                    .Include(c => c.Laboratorio)
+                    .Include(c => c.Labs)
                     .Include(c => c.ApplicationUser)
-                    .Include(c => c.TipoRolLaboratorio)
-                    .Include(c => c.Puesto)
+                    //.Include(c => c.TipoRolLaboratorio)
+                    //.Include(c => c.Puesto)
                     .ToList();
                 return View(rolesList);
             }
             else
             {
-                return View("RestrictedAccess"); 
+                return View("RestrictedAccess");
             }
         }
 
@@ -114,16 +91,16 @@ namespace ProyectoBitacorasCientificas.Controllers
             if (rol == null)
                 return HttpNotFound();
 
-            var viewModel = new RolLabForm()
+            var viewModel = new RolesLaboratorioForm()
             {
                 RolesLaboratorio = rol,
-                Laboratorios = _context.Laboratorios.ToList(),
-                Users = _context.Users.ToList(), 
-                TipoRolLaboratorios = _context.TipoRolLaboratorio.ToList(), 
-                Puestos = _context.Puestos.ToList()
+                Labs = _context.Labs.ToList()
+                //Users = _context.Users.ToList(),
+                //TipoRolLaboratorios = _context.TipoRolLaboratorio.ToList(),
+                //Puestos = _context.Puestos.ToList()
             };
 
-            return View("RolesLaboratorioAsignar", viewModel); 
+            return View("RolesLaboratorioForm", viewModel);
         }
 
         public ActionResult RolesLaboratorioEliminar(int id)
@@ -131,11 +108,12 @@ namespace ProyectoBitacorasCientificas.Controllers
             var rol = _context.RolesLaboratorio.SingleOrDefault(c => c.id == id);
             _context.RolesLaboratorio.Remove(rol);
             _context.SaveChanges();
-            return RedirectToAction("RolesLaboratorios", "Seguridad"); 
+            return RedirectToAction("RolesLaboratorios", "Seguridad");
         }
 
-
         #endregion
+
+        //#endregion
         // GET: Seguridad/RolesLaboratorioAsignar
 
         // GET: Seguridad/PuestosRoles

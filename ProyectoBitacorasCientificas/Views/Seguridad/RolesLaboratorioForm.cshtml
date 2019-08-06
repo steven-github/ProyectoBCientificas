@@ -1,0 +1,56 @@
+﻿@using System.Web.Mvc.Html
+@model ProyectoBitacorasCientificas.ViewModels.RolesLaboratorioForm
+
+@{
+    ViewBag.Title = "RolesLaboratorioForm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>RolesLaboratorio Form</h2>
+@using (Html.BeginForm("RolesLaboratorioCrearEditar", "Seguridad"))
+{
+<form class="form-horizontal">
+    <div class="form-group">
+        @Html.LabelFor(m => m.RolesLaboratorio.LabsId)
+        @Html.DropDownListFor(m=> m.RolesLaboratorio.LabsId,
+            new SelectList(
+                Model.Labs,
+                "id",
+                "nombre"
+
+                ),
+            "Seleccion el lab",
+            new {@class = "form-control"}
+
+            )
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.RolesLaboratorio.ApplicationUserId)
+        @Html.DropDownListFor(m=> m.RolesLaboratorio.ApplicationUserId,
+            new SelectList(
+                Model.ApplicationUsers,
+                "id",
+                "Email"
+
+                ),
+            "Seleccion el usuario",
+            new {@class = "form-control"}
+
+            )
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.RolesLaboratorio.tipoRol)
+        @Html.TextBoxFor(m => m.RolesLaboratorio.tipoRol, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.RolesLaboratorio.puesto)
+        @Html.TextBoxFor(m => m.RolesLaboratorio.puesto, new { @class = "form-control" })
+    </div>
+
+    @Html.HiddenFor(m => m.RolesLaboratorio.id)
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>
+}
