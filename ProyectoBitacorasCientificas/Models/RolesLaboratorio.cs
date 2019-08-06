@@ -8,13 +8,15 @@ namespace ProyectoBitacorasCientificas.Models
     public class RolesLaboratorio
     {
         public int id { get; set; }
+
+        public Labs Labs { get; set; }
+        public int LabsId { get; set; }
+
         public virtual ApplicationUser ApplicationUser { get; set; }
         public int ApplicationUserId { get; set; }
-        public Laboratorio Laboratorio { get; set; }
-        public int LaboratorioId { get; set; }
-        public TipoRolLaboratorio TipoRolLaboratorio { get; set; }
-        public int TipoRolLaboratorioId { get; set; }
-        public Puesto Puesto { get; set; }
-        public int PuestoId { get; set; }
+
+        public string tipoRol { get; set; }
+        public string puesto { get; set; }
+
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Data.Entity;
+using System.Data.Entity.Migrations.Model;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
@@ -42,10 +43,8 @@ namespace ProyectoBitacorasCientificas.Models
             return new ApplicationDbContext();
         }
 
-        public DbSet<TipoRolLaboratorio> TipoRolLaboratorio { get; set; }
-        public DbSet<RolesLaboratorio> RolesLaboratorio { get; set; }
+        //public DbSet<TipoRolLaboratorio> TipoRolLaboratorio { get; set; }
         public DbSet<NivelAcademico> NivelAcademicos { get; set; }
-        public DbSet<Laboratorio> Laboratorios { get; set; }
         public DbSet<Puesto> Puestos { get; set; }
         public DbSet<RamaCientifica> RamaCientifica { get; set; }
         public DbSet<TipoRamaCientifica> TipoRamaCientifica { get; set; }
@@ -55,6 +54,11 @@ namespace ProyectoBitacorasCientificas.Models
         public DbSet<Objetivos> Objetivos { get; set; }
         public DbSet<Factura> Facturas { get; set; }
         public DbSet<BitacoraRegistro> BitacoraRegistros { get; set; }
+        public DbSet<Laboratorio> Laboratorios { get; set; }
+        public DbSet<Labs> Labs { get; set; }
+        public DbSet<RolesLaboratorio> RolesLaboratorio { get; set; }
+        public DbSet<RoleLabTipo> RoleLabTipos { get; set; }
+
 
     }
 }

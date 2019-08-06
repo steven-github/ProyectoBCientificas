@@ -9,7 +9,7 @@ namespace ProyectoBitacorasCientificas.Migrations
 
     internal sealed class Configuration : DbMigrationsConfiguration<ProyectoBitacorasCientificas.Models.ApplicationDbContext>
     {
-        public DbSet<RolesLaboratorio> RolesLaboratorioModel { get; set; }
+        //public DbSet<RolesLaboratorio> RolesLaboratorioModel { get; set; }
 
         public Configuration()
         {

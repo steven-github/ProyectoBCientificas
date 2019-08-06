@@ -39,9 +39,9 @@
                             {
                                 <tr>
                                     <td>@roles.id</td>
-                                    <td>@roles.Laboratorio.nombre</td>
-                                    <td>@roles.TipoRolLaboratorio.nombre</td>
-                                    <td>@roles.Puesto.nombre</td>
+                                    <td>@roles.Labs.nombre</td>
+                                    <td>@roles.tipoRol</td>
+                                    <td>@roles.puesto</td>
                                     <td>@Html.ActionLink("Editar", "RolesLaboratorioEditar", "Seguridad", new { id = roles.id }, null)</td>
                                     <td>@Html.ActionLink("Eliminar", "RolesLaboratorioEliminar", "Seguridad", new { id = roles.id }, null)</td>
                                 </tr>
@@ -51,10 +51,6 @@
                 }
 
             }
-            @*@Html.ActionLink("Crear", "BitacorasCientificasCrear", "Administracion")
-            <br />
-            @Html.ActionLink("Ver Objetivos", "Objetivos", "Administracion")
-            @Html.ActionLink("Relacionar Objetivos", "ObjetivosCrear", "Administracion")*@
 
         </div>
     </div>

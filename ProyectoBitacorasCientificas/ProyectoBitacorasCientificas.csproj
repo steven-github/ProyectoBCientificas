@@ -312,6 +312,46 @@
     <Compile Include="Migrations\201907270437594_AddBitacorasRegistro.Designer.cs">
       <DependentUpon>201907270437594_AddBitacorasRegistro.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201907291844584_removeLaboratorios.cs" />
+    <Compile Include="Migrations\201907291844584_removeLaboratorios.Designer.cs">
+      <DependentUpon>201907291844584_removeLaboratorios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907292103262_AddLaboratorios.cs" />
+    <Compile Include="Migrations\201907292103262_AddLaboratorios.Designer.cs">
+      <DependentUpon>201907292103262_AddLaboratorios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907292106169_addRolesLaboratorio.cs" />
+    <Compile Include="Migrations\201907292106169_addRolesLaboratorio.Designer.cs">
+      <DependentUpon>201907292106169_addRolesLaboratorio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907292131162_AddLabs.cs" />
+    <Compile Include="Migrations\201907292131162_AddLabs.Designer.cs">
+      <DependentUpon>201907292131162_AddLabs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907292135088_addForeigKeyToLabsFromRolesLaboratorio.cs" />
+    <Compile Include="Migrations\201907292135088_addForeigKeyToLabsFromRolesLaboratorio.Designer.cs">
+      <DependentUpon>201907292135088_addForeigKeyToLabsFromRolesLaboratorio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907292246016_AddUsersToRolesLaboratorio.cs" />
+    <Compile Include="Migrations\201907292246016_AddUsersToRolesLaboratorio.Designer.cs">
+      <DependentUpon>201907292246016_AddUsersToRolesLaboratorio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907292339597_addMissingForeigkeysToRolesLaboratorio.cs" />
+    <Compile Include="Migrations\201907292339597_addMissingForeigkeysToRolesLaboratorio.Designer.cs">
+      <DependentUpon>201907292339597_addMissingForeigkeysToRolesLaboratorio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908052336355_removeTipoRolesLab.cs" />
+    <Compile Include="Migrations\201908052336355_removeTipoRolesLab.Designer.cs">
+      <DependentUpon>201908052336355_removeTipoRolesLab.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908052339219_addRoleLabTipo.cs" />
+    <Compile Include="Migrations\201908052339219_addRoleLabTipo.Designer.cs">
+      <DependentUpon>201908052339219_addRoleLabTipo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908052343410_addRoleLabTipoToRolesLaboratorio.cs" />
+    <Compile Include="Migrations\201908052343410_addRoleLabTipoToRolesLaboratorio.Designer.cs">
+      <DependentUpon>201908052343410_addRoleLabTipoToRolesLaboratorio.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Bitacora.cs" />
@@ -322,18 +362,19 @@
     <Compile Include="Models\Factura.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Laboratorio.cs" />
+    <Compile Include="Models\Labs.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\NivelAcademico.cs" />
     <Compile Include="Models\Objetivos.cs" />
     <Compile Include="Models\Proyectos.cs" />
     <Compile Include="Models\Puesto.cs" />
     <Compile Include="Models\RamaCientifica.cs" />
+    <Compile Include="Models\RoleLabTipo.cs" />
     <Compile Include="Models\RoleName.cs" />
     <Compile Include="Models\RolesLaboratorio.cs" />
     <Compile Include="Models\RolesUsuario.cs" />
     <Compile Include="Models\Tarjeta.cs" />
     <Compile Include="Models\TipoRamaCientifica.cs" />
-    <Compile Include="Models\TipoRolLaboratorio.cs" />
     <Compile Include="Models\Transaccion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\Lang.en.Designer.cs">
@@ -351,7 +392,7 @@
     <Compile Include="ViewModels\ObjetivosForm.cs" />
     <Compile Include="ViewModels\ProyectoRamaCientificaForm.cs" />
     <Compile Include="ViewModels\RamaCientificaForm.cs" />
-    <Compile Include="ViewModels\RolLabForm.cs" />
+    <Compile Include="ViewModels\RolesLaboratorioForm.cs" />
     <Compile Include="ViewModels\UserRoleViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -415,7 +456,6 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Seguridad\CrearUsuario.cshtml" />
-    <Content Include="Views\Seguridad\RolesLaboratorioAsignar.cshtml" />
     <Content Include="Views\Seguridad\RolesUsuario.cshtml" />
     <Content Include="Views\Seguridad\PuestosRoles.cshtml" />
     <Content Include="Views\Seguridad\Consecutivos.cshtml" />
@@ -437,6 +477,7 @@
     <Content Include="Views\Administracion\ObjetivosForm.cshtml" />
     <Content Include="Views\Shared\RestrictedAccess.cshtml" />
     <Content Include="Views\Seguridad\RolesLaboratorios.cshtml" />
+    <Content Include="Views\Seguridad\RolesLaboratorioForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -547,6 +588,36 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201907270437594_AddBitacorasRegistro.resx">
       <DependentUpon>201907270437594_AddBitacorasRegistro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907291844584_removeLaboratorios.resx">
+      <DependentUpon>201907291844584_removeLaboratorios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907292103262_AddLaboratorios.resx">
+      <DependentUpon>201907292103262_AddLaboratorios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907292106169_addRolesLaboratorio.resx">
+      <DependentUpon>201907292106169_addRolesLaboratorio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907292131162_AddLabs.resx">
+      <DependentUpon>201907292131162_AddLabs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907292135088_addForeigKeyToLabsFromRolesLaboratorio.resx">
+      <DependentUpon>201907292135088_addForeigKeyToLabsFromRolesLaboratorio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907292246016_AddUsersToRolesLaboratorio.resx">
+      <DependentUpon>201907292246016_AddUsersToRolesLaboratorio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907292339597_addMissingForeigkeysToRolesLaboratorio.resx">
+      <DependentUpon>201907292339597_addMissingForeigkeysToRolesLaboratorio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908052336355_removeTipoRolesLab.resx">
+      <DependentUpon>201908052336355_removeTipoRolesLab.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908052339219_addRoleLabTipo.resx">
+      <DependentUpon>201908052339219_addRoleLabTipo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908052343410_addRoleLabTipoToRolesLaboratorio.resx">
+      <DependentUpon>201908052343410_addRoleLabTipoToRolesLaboratorio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Lang.en.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

@@ -143,93 +143,93 @@ namespace ProyectoBitacorasCientificas.Controllers
 
         #endregion
 
-        #region ProyectosCRUD
+        //#region ProyectosCRUD
 
-         [Authorize(Roles = RoleName.CanManageAdministration + "," + RoleName.CanManageMantenimiento)]
-        public ActionResult ProyectosForm()
-        {
-            var ramasList = _context.RamaCientifica.ToList();
+        // [Authorize(Roles = RoleName.CanManageAdministration + "," + RoleName.CanManageMantenimiento)]
+        //public ActionResult ProyectosForm()
+        //{
+        //    var ramasList = _context.RamaCientifica.ToList();
 
-            var viewModel = new ProyectoRamaCientificaForm()
-            {
-                RamasCientificas = ramasList
-            };
+        //    var viewModel = new ProyectoRamaCientificaForm()
+        //    {
+        //        RamasCientificas = ramasList
+        //    };
 
 
-            return View("ProyectosForm", viewModel);
-        }
+        //    return View("ProyectosForm", viewModel);
+        //}
 
-        public ActionResult Proyectos()
-        {
-            if (User.IsInRole(RoleName.CanManageAdministration) || User.IsInRole(RoleName.CanManageMantenimiento))
-            {
-                var proyectosList = _context.Proyectos.Include(c => c.RamaCientifica).ToList();
-                return View(proyectosList);
-            }
-            else
-            {
-                return View("RestrictedAccess");
-            }
+        //public ActionResult Proyectos()
+        //{
+        //    if (User.IsInRole(RoleName.CanManageAdministration) || User.IsInRole(RoleName.CanManageMantenimiento))
+        //    {
+        //        var proyectosList = _context.Proyectos.Include(c => c.RamaCientifica).ToList();
+        //        return View(proyectosList);
+        //    }
+        //    else
+        //    {
+        //        return View("RestrictedAccess");
+        //    }
 
-        }
+        //}
 
-        [HttpPost]
-        [Authorize(Roles = RoleName.CanManageAdministration + "," + RoleName.CanManageMantenimiento)]
-        public ActionResult ProyectosCrearEditar(Proyectos proyectos)
-        {
-            var descripcion = "";
-            if (proyectos.id == 0)
-            {
-                _context.Proyectos.Add(proyectos);
-                descripcion = "Proyecto Creado";
-            }
-            else
-            {
-                var proyectoInDb = _context.Proyectos.Single(c => c.id == proyectos.id);
+        //[HttpPost]
+        //[Authorize(Roles = RoleName.CanManageAdministration + "," + RoleName.CanManageMantenimiento)]
+        //public ActionResult ProyectosCrearEditar(Proyectos proyectos)
+        //{
+        //    var descripcion = "";
+        //    if (proyectos.id == 0)
+        //    {
+        //        _context.Proyectos.Add(proyectos);
+        //        descripcion = "Proyecto Creado";
+        //    }
+        //    else
+        //    {
+        //        var proyectoInDb = _context.Proyectos.Single(c => c.id == proyectos.id);
 
-                proyectoInDb.prefijo = proyectos.prefijo;
-                proyectoInDb.nombre = proyectos.nombre;
-                proyectoInDb.RamaCientificaId = proyectos.RamaCientificaId;
+        //        proyectoInDb.prefijo = proyectos.prefijo;
+        //        proyectoInDb.nombre = proyectos.nombre;
+        //        proyectoInDb.RamaCientificaId = proyectos.RamaCientificaId;
 
-                descripcion = "Proyecto id:" + proyectos.id + " Editado";
-            }
+        //        descripcion = "Proyecto id:" + proyectos.id + " Editado";
+        //    }
 
-            _context.SaveChanges();
-            BitacorasRegistroCrear(descripcion, "Proyecto");
-            return RedirectToAction("Proyectos", "Administracion");
-        }
+        //    _context.SaveChanges();
+        //    BitacorasRegistroCrear(descripcion, "Proyecto");
+        //    return RedirectToAction("Proyectos", "Administracion");
+        //}
 
-        // GET: Administracion/ProyectosEditar
-         [Authorize(Roles = RoleName.CanManageAdministration + "," + RoleName.CanManageMantenimiento)]
-        public ActionResult ProyectosEditar(int id)
-        {
+        //// GET: Administracion/ProyectosEditar
+        // [Authorize(Roles = RoleName.CanManageAdministration + "," + RoleName.CanManageMantenimiento)]
+        //public ActionResult ProyectosEditar(int id)
+        //{
 
-            var proyecto = _context.Proyectos.SingleOrDefault(c => c.id == id);
-            if (proyecto == null)
-            {
-                return HttpNotFound();
-            }
+        //    var proyecto = _context.Proyectos.SingleOrDefault(c => c.id == id);
+        //    if (proyecto == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
 
-            var viewModel = new ProyectoRamaCientificaForm()
-            {
-                Proyectos = proyecto,
-                RamasCientificas = _context.RamaCientifica.ToList()
-            };
+        //    var viewModel = new ProyectoRamaCientificaForm()
+        //    {
+        //        Proyectos = proyecto,
+        //        RamasCientificas = _context.RamaCientifica.ToList()
+        //    };
 
-            return View("ProyectosForm", viewModel);
-        }
+        //    return View("ProyectosForm", viewModel);
+        //}
 
-         [Authorize(Roles = RoleName.CanManageAdministration + "," + RoleName.CanManageMantenimiento)]
-        public ActionResult ProyectosEliminar(int id)
-        {
-            var proyecto = _context.Proyectos.SingleOrDefault(c => c.id == id);
-            _context.Proyectos.Remove(proyecto);
-            _context.SaveChanges();
-            var descripcion = "Proyecto id:" + id + " Eliminado";
-            BitacorasRegistroCrear(descripcion, "Proyecto");
-            return RedirectToAction("Proyectos", "Administracion");
-        }
-        #endregion
+        // [Authorize(Roles = RoleName.CanManageAdministration + "," + RoleName.CanManageMantenimiento)]
+        //public ActionResult ProyectosEliminar(int id)
+        //{
+        //    var proyecto = _context.Proyectos.SingleOrDefault(c => c.id == id);
+        //    _context.Proyectos.Remove(proyecto);
+        //    _context.SaveChanges();
+        //    var descripcion = "Proyecto id:" + id + " Eliminado";
+        //    BitacorasRegistroCrear(descripcion, "Proyecto");
+        //    return RedirectToAction("Proyectos", "Administracion");
+        //}
+        //#endregion
 
         #region BitacorasCRUD
 
@@ -246,7 +246,7 @@ namespace ProyectoBitacorasCientificas.Controllers
                 Users = userList
             };
 
-            return View("BitacorasCientificasForm",viewModel);
+            return View("BitacorasCientificasForm", viewModel);
         }
 
         [Authorize(Roles = RoleName.CanManageAdministration + "," + RoleName.CanManageMantenimiento)]
@@ -297,8 +297,8 @@ namespace ProyectoBitacorasCientificas.Controllers
                
         }
 
-        // GET: Administracion/BitacorasCientificasEditar
-        [Authorize(Roles = RoleName.CanManageAdministration + "," + RoleName.CanManageMantenimiento)]
+        //GET: Administracion/BitacorasCientificasEditar
+       [Authorize(Roles = RoleName.CanManageAdministration + "," + RoleName.CanManageMantenimiento)]
         public ActionResult BitacorasCientificasEditar(int id)
         {
             var bitacora = _context.Bitacoras.SingleOrDefault(c => c.id == id);
@@ -309,10 +309,10 @@ namespace ProyectoBitacorasCientificas.Controllers
             {
                 Bitacora = bitacora,
                 Proyectos = _context.Proyectos.ToList(),
-                Users =  _context.Users.ToList()
+                Users = _context.Users.ToList()
             };
 
-            return View("BitacorasCientificasForm",viewModel);
+            return View("BitacorasCientificasForm", viewModel);
         }
 
         [Authorize(Roles = RoleName.CanManageAdministration + "," + RoleName.CanManageMantenimiento)]
