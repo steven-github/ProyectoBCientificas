@@ -7,10 +7,10 @@ namespace ProyectoBitacorasCientificas.Migrations
     {
         public override void Up()
         {
-            DropForeignKey("dbo.Bitacoras", "ApplicationUser_Id", "dbo.AspNetUsers");
-            DropIndex("dbo.Bitacoras", new[] { "ApplicationUser_Id" });
-            DropColumn("dbo.Bitacoras", "ApplicationUserId");
-            DropColumn("dbo.Bitacoras", "ApplicationUser_Id");
+            //DropForeignKey("dbo.Bitacoras", "ApplicationUser_Id", "dbo.AspNetUsers");
+            //DropIndex("dbo.Bitacoras", new[] { "ApplicationUser_Id" });
+            //DropColumn("dbo.Bitacoras", "ApplicationUserId");
+            //DropColumn("dbo.Bitacoras", "ApplicationUser_Id");
         }
         
         public override void Down()

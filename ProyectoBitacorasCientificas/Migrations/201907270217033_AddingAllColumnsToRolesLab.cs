@@ -7,16 +7,16 @@ namespace ProyectoBitacorasCientificas.Migrations
     {
         public override void Up()
         {
-            AddColumn("dbo.RolesLaboratorios", "ApplicationUserId", c => c.Int(nullable: false));
-            AddColumn("dbo.RolesLaboratorios", "TipoRolLaboratorioId", c => c.Int(nullable: false));
-            AddColumn("dbo.RolesLaboratorios", "PuestoId", c => c.Int(nullable: false));
-            AddColumn("dbo.RolesLaboratorios", "ApplicationUser_Id", c => c.String(maxLength: 128));
-            CreateIndex("dbo.RolesLaboratorios", "TipoRolLaboratorioId");
-            CreateIndex("dbo.RolesLaboratorios", "PuestoId");
-            CreateIndex("dbo.RolesLaboratorios", "ApplicationUser_Id");
-            AddForeignKey("dbo.RolesLaboratorios", "ApplicationUser_Id", "dbo.AspNetUsers", "Id");
-            AddForeignKey("dbo.RolesLaboratorios", "PuestoId", "dbo.Puestoes", "id", cascadeDelete: true);
-            AddForeignKey("dbo.RolesLaboratorios", "TipoRolLaboratorioId", "dbo.TipoRolLaboratorios", "id", cascadeDelete: true);
+            //AddColumn("dbo.RolesLaboratorios", "ApplicationUserId", c => c.Int(nullable: false));
+            //AddColumn("dbo.RolesLaboratorios", "TipoRolLaboratorioId", c => c.Int(nullable: false));
+            //AddColumn("dbo.RolesLaboratorios", "PuestoId", c => c.Int(nullable: false));
+            //AddColumn("dbo.RolesLaboratorios", "ApplicationUser_Id", c => c.String(maxLength: 128));
+            //CreateIndex("dbo.RolesLaboratorios", "TipoRolLaboratorioId");
+            //CreateIndex("dbo.RolesLaboratorios", "PuestoId");
+            //CreateIndex("dbo.RolesLaboratorios", "ApplicationUser_Id");
+            //AddForeignKey("dbo.RolesLaboratorios", "ApplicationUser_Id", "dbo.AspNetUsers", "Id");
+            //AddForeignKey("dbo.RolesLaboratorios", "PuestoId", "dbo.Puestoes", "id", cascadeDelete: true);
+            //AddForeignKey("dbo.RolesLaboratorios", "TipoRolLaboratorioId", "dbo.TipoRolLaboratorios", "id", cascadeDelete: true);
         }
         
         public override void Down()

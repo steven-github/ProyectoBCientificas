@@ -7,7 +7,7 @@ namespace ProyectoBitacorasCientificas.Migrations
     {
         public override void Up()
         {
-            RenameTable(name: "dbo.RolesLabs", newName: "RolesLaboratorios");
+            //RenameTable(name: "dbo.RolesLabs", newName: "RolesLaboratorios");
         }
         
         public override void Down()

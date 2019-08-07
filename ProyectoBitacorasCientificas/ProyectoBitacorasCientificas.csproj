@@ -352,10 +352,15 @@
     <Compile Include="Migrations\201908052343410_addRoleLabTipoToRolesLaboratorio.Designer.cs">
       <DependentUpon>201908052343410_addRoleLabTipoToRolesLaboratorio.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201908062202204_addDifferentLabs.cs" />
+    <Compile Include="Migrations\201908062202204_addDifferentLabs.Designer.cs">
+      <DependentUpon>201908062202204_addDifferentLabs.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Bitacora.cs" />
     <Compile Include="Models\BitacoraRegistro.cs" />
+    <Compile Include="Models\BitacoraRegistroEnum.cs" />
     <Compile Include="Models\CompraExperimento.cs" />
     <Compile Include="Models\EasyPay.cs" />
     <Compile Include="Models\Equipo.cs" />
@@ -618,6 +623,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201908052343410_addRoleLabTipoToRolesLaboratorio.resx">
       <DependentUpon>201908052343410_addRoleLabTipoToRolesLaboratorio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908062202204_addDifferentLabs.resx">
+      <DependentUpon>201908062202204_addDifferentLabs.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Lang.en.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

@@ -25,8 +25,27 @@ namespace ProyectoBitacorasCientificas.Controllers
             return View();
         }
 
+
+        #region Bitacoras Registro
+
+        public ActionResult BitacorasRegistroCrear(
+            string descripcion, string entidadRelacionada
+        )
+        {
+            var bitacoraRegistro = new BitacoraRegistro
+            {
+                descripcion = descripcion,
+                entidadRelacionada = entidadRelacionada
+            };
+            _context.BitacoraRegistros.Add(bitacoraRegistro);
+            _context.SaveChanges();
+            return new EmptyResult();
+        }
+
+        #endregion
+
         #region UsersCRUD 
-        
+
 
         [Authorize(Roles = RoleName.CanManageAdministration + "," + RoleName.CanManageSecurity)]
         public ActionResult Usuarios()
@@ -56,13 +75,29 @@ namespace ProyectoBitacorasCientificas.Controllers
         [Authorize(Roles = RoleName.CanManageAdministration + "," + RoleName.CanManageSecurity)]
         public ActionResult RolesLaboratorioCrearEditar(RolesLaboratorio rolesLaboratorio)
         {
+            var descripcion = "";
             if (rolesLaboratorio.id == 0)
             {
-                _context.RolesLaboratorio.Add(rolesLaboratorio); 
+                _context.RolesLaboratorio.Add(rolesLaboratorio);
+                descripcion = BitacoraRegistroEnum.rolLaboratorio + BitacoraRegistroEnum.create;
+            }
+            else
+            {
+                var rolInDb = _context.RolesLaboratorio.Single(c => c.id == rolesLaboratorio.id);
+
+                rolInDb.LabsId = rolesLaboratorio.LabsId; 
+                rolInDb.puesto = rolesLaboratorio.puesto; 
+                rolInDb.tipoRol = rolesLaboratorio.tipoRol;
+
+                descripcion = BitacoraRegistroEnum.stringEditDelete(
+                   BitacoraRegistroEnum.rolLaboratorio,
+                   rolInDb.id,
+                   BitacoraRegistroEnum.edit
+               );
             }
 
             _context.SaveChanges();
-
+            BitacorasRegistroCrear(descripcion, BitacoraRegistroEnum.rolLaboratorio);
             return RedirectToAction("RolesLaboratorios", "Seguridad"); 
 
         }
@@ -74,8 +109,6 @@ namespace ProyectoBitacorasCientificas.Controllers
                 var rolesList = _context.RolesLaboratorio
                     .Include(c => c.Labs)
                     .Include(c => c.ApplicationUser)
-                    //.Include(c => c.TipoRolLaboratorio)
-                    //.Include(c => c.Puesto)
                     .ToList();
                 return View(rolesList);
             }
@@ -94,10 +127,8 @@ namespace ProyectoBitacorasCientificas.Controllers
             var viewModel = new RolesLaboratorioForm()
             {
                 RolesLaboratorio = rol,
-                Labs = _context.Labs.ToList()
-                //Users = _context.Users.ToList(),
-                //TipoRolLaboratorios = _context.TipoRolLaboratorio.ToList(),
-                //Puestos = _context.Puestos.ToList()
+                Labs = _context.Labs.ToList(),
+                ApplicationUsers = _context.Users.ToList()
             };
 
             return View("RolesLaboratorioForm", viewModel);
@@ -108,6 +139,13 @@ namespace ProyectoBitacorasCientificas.Controllers
             var rol = _context.RolesLaboratorio.SingleOrDefault(c => c.id == id);
             _context.RolesLaboratorio.Remove(rol);
             _context.SaveChanges();
+
+            var descripcion = BitacoraRegistroEnum.stringEditDelete(
+                   BitacoraRegistroEnum.rolLaboratorio,
+                   id,
+                   BitacoraRegistroEnum.delete
+              );
+            BitacorasRegistroCrear(descripcion, BitacoraRegistroEnum.rolLaboratorio);
             return RedirectToAction("RolesLaboratorios", "Seguridad");
         }
 
