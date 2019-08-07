@@ -27,7 +27,7 @@ namespace ProyectoBitacorasCientificas.Models
         #endregion
 
         #region SeguridadController 
-        public const string rolLaboratorio = "Rol Laboratorio";
+        public const string rolLaboratorio = "Rol Laboratorio ";
         #endregion
     }
 }

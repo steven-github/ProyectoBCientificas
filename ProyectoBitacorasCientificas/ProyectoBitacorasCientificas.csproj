@@ -356,6 +356,14 @@
     <Compile Include="Migrations\201908062202204_addDifferentLabs.Designer.cs">
       <DependentUpon>201908062202204_addDifferentLabs.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201908070059310_noChangesReallyNeededButLetssee.cs" />
+    <Compile Include="Migrations\201908070059310_noChangesReallyNeededButLetssee.Designer.cs">
+      <DependentUpon>201908070059310_noChangesReallyNeededButLetssee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908070100471_anotherUselessMigration.cs" />
+    <Compile Include="Migrations\201908070100471_anotherUselessMigration.Designer.cs">
+      <DependentUpon>201908070100471_anotherUselessMigration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Bitacora.cs" />
@@ -626,6 +634,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201908062202204_addDifferentLabs.resx">
       <DependentUpon>201908062202204_addDifferentLabs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908070059310_noChangesReallyNeededButLetssee.resx">
+      <DependentUpon>201908070059310_noChangesReallyNeededButLetssee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908070100471_anotherUselessMigration.resx">
+      <DependentUpon>201908070100471_anotherUselessMigration.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Lang.en.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
