@@ -364,6 +364,10 @@
     <Compile Include="Migrations\201908070100471_anotherUselessMigration.Designer.cs">
       <DependentUpon>201908070100471_anotherUselessMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201908070111222_addErrorsTable.cs" />
+    <Compile Include="Migrations\201908070111222_addErrorsTable.Designer.cs">
+      <DependentUpon>201908070111222_addErrorsTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Bitacora.cs" />
@@ -372,6 +376,7 @@
     <Compile Include="Models\CompraExperimento.cs" />
     <Compile Include="Models\EasyPay.cs" />
     <Compile Include="Models\Equipo.cs" />
+    <Compile Include="Models\Error.cs" />
     <Compile Include="Models\Factura.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Laboratorio.cs" />
@@ -640,6 +645,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201908070100471_anotherUselessMigration.resx">
       <DependentUpon>201908070100471_anotherUselessMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908070111222_addErrorsTable.resx">
+      <DependentUpon>201908070111222_addErrorsTable.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Lang.en.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

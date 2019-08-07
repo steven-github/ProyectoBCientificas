@@ -60,8 +60,17 @@ namespace ProyectoBitacorasCientificas.Controllers
         [Authorize(Roles = RoleName.CanManageAdministration + "," + RoleName.CanManageConsulting)]
         public ActionResult Errores()
         {
-            return View();
+            if (User.IsInRole(RoleName.CanManageAdministration) || User.IsInRole(RoleName.CanManageConsulting))
+            {
+                var errores = _context.Errors.ToList();
+                return View(errores);
+            }
+            else
+            {
+                return View("RestrictedAccess");
+            }
         }
+
         // GET: Consulta/Descargas
         [Authorize(Roles = RoleName.CanManageAdministration + "," + RoleName.CanManageConsulting)]
         public ActionResult Descargas()

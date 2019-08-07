@@ -1,4 +1,4 @@
-﻿
+﻿@model IEnumerable<ProyectoBitacorasCientificas.Models.Error>
 @{
     ViewBag.Title = "Errores";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -6,3 +6,45 @@
 
 <h2>Errores</h2>
 
+<form class="form-horizontal">
+    <div class="form-group">
+        <div class="col-xs-8">
+
+            @if (Model != null)
+            {
+                if (!Model.Any())
+                {
+                    <p>No tenemos errores </p>
+                }
+                else
+                {
+
+                    <!--Table-->
+                    <table id="tablePreview" class="table">
+                        <!--Table head-->
+                        <thead>
+                        <tr>
+                            <th>Codigo</th>
+                            <th>Descripcion</th>
+                            <th>Entidad Relacionada</th>
+                                
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach (var error in Model)
+                        {
+                            <tr>
+                                <td>@error.id</td>
+                                <td>@error.descripcion</td>
+                                <td>@error.entidadRelacionada</td>
+                            </tr>
+                        }
+                        </tbody>
+                    </table>
+                }
+
+            }
+
+        </div>
+    </div>
+</form>

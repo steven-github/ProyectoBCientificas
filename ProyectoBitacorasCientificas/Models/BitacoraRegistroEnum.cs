@@ -11,6 +11,7 @@ namespace ProyectoBitacorasCientificas.Models
         public const string create = "Creado"; 
         public const string edit = "Editado";
         public const string delete = "Eliminado";
+        public const string notFound = "No encontrado";
 
         public static string stringEditDelete(string entity, int id, string action)
         {

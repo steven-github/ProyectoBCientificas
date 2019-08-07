@@ -29,7 +29,7 @@ namespace ProyectoBitacorasCientificas.Controllers
             return View();
         }
 
-        #region Bitacoras Registro
+        #region Bitacoras Registro / Errores
 
         public ActionResult BitacorasRegistroCrear(
             string descripcion, string entidadRelacionada
@@ -41,6 +41,20 @@ namespace ProyectoBitacorasCientificas.Controllers
                 entidadRelacionada = entidadRelacionada
             };
             _context.BitacoraRegistros.Add(bitacoraRegistro);
+            _context.SaveChanges();
+            return new EmptyResult();
+        }
+
+        public ActionResult ErrorCrear(
+            string descripcion, string entidadRelacionada
+        )
+        {
+            var error = new Error
+            {
+                descripcion = descripcion,
+                entidadRelacionada = entidadRelacionada
+            };
+            _context.Errors.Add(error);
             _context.SaveChanges();
             return new EmptyResult();
         }
@@ -121,6 +135,10 @@ namespace ProyectoBitacorasCientificas.Controllers
             var ramaCientifica = _context.RamaCientifica.SingleOrDefault(c => c.id == id);
             if (ramaCientifica == null)
             {
+                ErrorCrear(
+                    BitacoraRegistroEnum.ramasCientificas + BitacoraRegistroEnum.notFound,
+                    BitacoraRegistroEnum.ramasCientificas
+                ); 
                 return HttpNotFound();
             }
 
@@ -219,6 +237,10 @@ namespace ProyectoBitacorasCientificas.Controllers
             var proyecto = _context.Proyectos.SingleOrDefault(c => c.id == id);
             if (proyecto == null)
             {
+                ErrorCrear(
+                    BitacoraRegistroEnum.proyectos + BitacoraRegistroEnum.notFound,
+                    BitacoraRegistroEnum.proyectos
+                );
                 return HttpNotFound();
             }
 
@@ -271,8 +293,23 @@ namespace ProyectoBitacorasCientificas.Controllers
             var descripcion = "";
             if (bitacora.id == 0)
             {
-                _context.Bitacoras.Add(bitacora);
-                descripcion = BitacoraRegistroEnum.bitacorasCientificas + BitacoraRegistroEnum.create;
+                try
+                {
+                    _context.Bitacoras.Add(bitacora);
+                    descripcion = BitacoraRegistroEnum.bitacorasCientificas + BitacoraRegistroEnum.create;
+                }
+                catch (Exception ex)
+                {
+                    ErrorCrear(
+                        ex.ToString(),
+                        BitacoraRegistroEnum.bitacorasCientificas
+                    );
+                }
+                finally
+                {
+                    RedirectToAction("BitacorasCientificas","Administracion");
+                }
+               
             }
             else
             {
@@ -323,7 +360,11 @@ namespace ProyectoBitacorasCientificas.Controllers
         {
             var bitacora = _context.Bitacoras.SingleOrDefault(c => c.id == id);
             if (bitacora == null)
-                return HttpNotFound();
+                ErrorCrear(
+                    BitacoraRegistroEnum.bitacorasCientificas + BitacoraRegistroEnum.notFound,
+                    BitacoraRegistroEnum.bitacorasCientificas
+                );
+            return HttpNotFound();
 
             var viewModel = new BitacorasForm()
             {
@@ -426,7 +467,11 @@ namespace ProyectoBitacorasCientificas.Controllers
         {
             var objetivo = _context.Objetivos.SingleOrDefault(c => c.id == id);
             if (objetivo == null)
-                return HttpNotFound();
+                ErrorCrear(
+                    BitacoraRegistroEnum.objetivos + BitacoraRegistroEnum.notFound,
+                    BitacoraRegistroEnum.objetivos
+                );
+            return HttpNotFound();
 
             var viewModel = new ObjetivosForm()
             {

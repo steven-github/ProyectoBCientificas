@@ -58,6 +58,7 @@ namespace ProyectoBitacorasCientificas.Models
         public DbSet<Labs> Labs { get; set; }
         public DbSet<RolesLaboratorio> RolesLaboratorio { get; set; }
         public DbSet<RoleLabTipo> RoleLabTipos { get; set; }
+        public DbSet<Error> Errors { get; set; }
 
 
     }

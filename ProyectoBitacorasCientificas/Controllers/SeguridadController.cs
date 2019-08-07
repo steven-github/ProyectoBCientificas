@@ -26,7 +26,7 @@ namespace ProyectoBitacorasCientificas.Controllers
         }
 
 
-        #region Bitacoras Registro
+        #region Bitacoras Registro / Errores
 
         public ActionResult BitacorasRegistroCrear(
             string descripcion, string entidadRelacionada
@@ -38,6 +38,20 @@ namespace ProyectoBitacorasCientificas.Controllers
                 entidadRelacionada = entidadRelacionada
             };
             _context.BitacoraRegistros.Add(bitacoraRegistro);
+            _context.SaveChanges();
+            return new EmptyResult();
+        }
+
+        public ActionResult ErrorCrear(
+            string descripcion, string entidadRelacionada
+        )
+        {
+            var error = new Error
+            {
+                descripcion = descripcion,
+                entidadRelacionada = entidadRelacionada
+            };
+            _context.Errors.Add(error);
             _context.SaveChanges();
             return new EmptyResult();
         }
