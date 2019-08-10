@@ -12,5 +12,6 @@ namespace ProyectoBitacorasCientificas.Models
         public const string CanManageConsecutives = "CanManageConsecutives";
         public const string CanManageMantenimiento = "CanManageMantenimiento";
         public const string CanManageConsulting = "CanManageConsulting";
+        public const string CanManageClientSide = "CanManageClientSide";
     }
 }
