@@ -169,8 +169,8 @@ namespace ProyectoBitacorasCientificas.Controllers
                     //// TODO: Delete after usage of this Temp Code 
                     //var roleStore = new RoleStore<IdentityRole>(new ApplicationDbContext());
                     //var roleManager = new RoleManager<IdentityRole>(roleStore);
-                    //await roleManager.CreateAsync(new IdentityRole(RoleName.CanManageConsulting));
-                    //await UserManager.AddToRoleAsync(user.Id, RoleName.CanManageConsulting);
+                    //await roleManager.CreateAsync(new IdentityRole(RoleName.CanManageClientSide));
+                    //await UserManager.AddToRoleAsync(user.Id, RoleName.CanManageClientSide);
 
 
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);

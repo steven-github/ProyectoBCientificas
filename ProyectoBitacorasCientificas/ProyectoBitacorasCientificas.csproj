@@ -175,6 +175,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdministracionController.cs" />
+    <Compile Include="Controllers\ClientController.cs" />
     <Compile Include="Controllers\ConsultaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LanguageController.cs" />
@@ -368,6 +369,10 @@
     <Compile Include="Migrations\201908070111222_addErrorsTable.Designer.cs">
       <DependentUpon>201908070111222_addErrorsTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201908070253459_noIdeaWhatNow.cs" />
+    <Compile Include="Migrations\201908070253459_noIdeaWhatNow.Designer.cs">
+      <DependentUpon>201908070253459_noIdeaWhatNow.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Bitacora.cs" />
@@ -496,6 +501,7 @@
     <Content Include="Views\Shared\RestrictedAccess.cshtml" />
     <Content Include="Views\Seguridad\RolesLaboratorios.cshtml" />
     <Content Include="Views\Seguridad\RolesLaboratorioForm.cshtml" />
+    <Content Include="Views\Client\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -648,6 +654,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201908070111222_addErrorsTable.resx">
       <DependentUpon>201908070111222_addErrorsTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908070253459_noIdeaWhatNow.resx">
+      <DependentUpon>201908070253459_noIdeaWhatNow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Lang.en.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
