@@ -94,6 +94,29 @@ namespace ProyectoBitacorasCientificas.Controllers
             }
         }
 
+        //public ActionResult SelectRamaCientifica()
+        //{
+        //    if (User.IsInRole(RoleName.CanManageAdministration) || User.IsInRole(RoleName.CanManageMantenimiento))
+        //    {
+        //        var ramasList = _context.RamaCientifica.Include(c => c.TipoRamaCientifica).ToList();
+        //        return View(ramasList);
+        //    }
+        //    else
+        //    {
+        //        return View("RestrictedAccess");
+        //    }
+        //}
+
+        public ActionResult RamaCientificaDetail(int id)
+        {
+            var rama = _context.RamaCientifica.Include(c => c.TipoRamaCientifica).SingleOrDefault(c => c.id == id);
+
+            if (rama == null)
+                return HttpNotFound();
+
+            return View(rama);
+        }
+
 
         [HttpPost]
          [Authorize(Roles = RoleName.CanManageAdministration + "," + RoleName.CanManageMantenimiento)]
@@ -318,6 +341,7 @@ namespace ProyectoBitacorasCientificas.Controllers
                 bitacoraInDb.nombreExperimento = bitacora.nombreExperimento;
                 bitacoraInDb.prefijo = bitacora.prefijo;
                 bitacoraInDb.Fecha = bitacora.Fecha;
+                bitacoraInDb.precio = bitacora.precio;
                 bitacoraInDb.ProyectosId = bitacora.ProyectosId;
                 bitacoraInDb.ApplicationUserId = bitacora.ApplicationUserId;
 
@@ -354,18 +378,58 @@ namespace ProyectoBitacorasCientificas.Controllers
                
         }
 
-        //GET: Administracion/BitacorasCientificasEditar
-       [Authorize(Roles = RoleName.CanManageAdministration + "," + RoleName.CanManageMantenimiento)]
-        public ActionResult BitacorasCientificasEditar(int id)
+        public ActionResult Experimentos()
         {
-            var bitacora = _context.Bitacoras.SingleOrDefault(c => c.id == id);
+            if ( User.IsInRole(RoleName.CanManageClientSide))
+            {
+                var bitacorasList = _context.Bitacoras
+                    .Include(c => c.Proyectos)
+                    .Include(c => c.ApplicationUser)
+                    .ToList();
+
+                return View(bitacorasList);
+            }
+            else
+            {
+                return View("RestrictedAccess");
+            }
+
+        }
+
+        public ActionResult BitacoraCientificaDetail(int id)
+        {
+            var bitacora = _context.Bitacoras
+                            .Include(c => c.Proyectos)
+                            .Include(c => c.ApplicationUser)
+                            .SingleOrDefault(c => c.id == id);
+
             if (bitacora == null)
+            {
                 ErrorCrear(
                     BitacoraRegistroEnum.bitacorasCientificas + BitacoraRegistroEnum.notFound,
                     BitacoraRegistroEnum.bitacorasCientificas
                 );
-            return HttpNotFound();
+                return HttpNotFound();
+            }
+               
 
+            return View(bitacora);
+        }
+
+
+        //GET: Administracion/BitacorasCientificasEditar
+        [Authorize(Roles = RoleName.CanManageAdministration + "," + RoleName.CanManageMantenimiento)]
+        public ActionResult BitacorasCientificasEditar(int id)
+        {
+            var bitacora = _context.Bitacoras.SingleOrDefault(c => c.id == id);
+            if (bitacora == null)
+            {
+                ErrorCrear(
+                    BitacoraRegistroEnum.bitacorasCientificas + BitacoraRegistroEnum.notFound,
+                    BitacoraRegistroEnum.bitacorasCientificas
+                );
+                return HttpNotFound();
+            }
             var viewModel = new BitacorasForm()
             {
                 Bitacora = bitacora,

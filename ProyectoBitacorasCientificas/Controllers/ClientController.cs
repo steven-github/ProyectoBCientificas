@@ -29,6 +29,11 @@ namespace ProyectoBitacorasCientificas.Controllers
             }
         }
 
+        //public ActionResult SelectedRamaCientifica(int id)
+        //{
+            
+        //}
+
 
     }
 }

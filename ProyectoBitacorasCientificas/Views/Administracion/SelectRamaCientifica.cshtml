@@ -1,0 +1,17 @@
+﻿@*@using System.Web.Mvc.Html
+@model IEnumerable<ProyectoBitacorasCientificas.Models.RamaCientifica>
+
+@using (Html.BeginForm("RamaCientificaDetail", "Administracion"))
+{
+    <form class="form-horizontal">
+        <div class="form-group">
+            @Html.LabelFor(m => m. .nombre)
+            @Html.DropDownListFor(m => m.RamaCientifica.id, new SelectList(
+                Model.RamaCientificas, 
+                "id", "nombre"),
+                "Seleccion la rama cientifica",
+                new { @class = "form-control" })
+        </div>
+        <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+}*@

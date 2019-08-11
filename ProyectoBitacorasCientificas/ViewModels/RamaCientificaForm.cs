@@ -9,6 +9,7 @@ namespace ProyectoBitacorasCientificas.ViewModels
     public class RamaCientificaForm
     {
         public IEnumerable<TipoRamaCientifica> TipoRamaCientificas { get; set; }
+        public IEnumerable<RamaCientifica> RamaCientificas { get; set; }
         public RamaCientifica RamaCientifica { get; set; }
     }
 }
