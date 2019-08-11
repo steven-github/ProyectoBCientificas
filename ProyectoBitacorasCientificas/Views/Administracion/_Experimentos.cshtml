@@ -1,0 +1,52 @@
+﻿@using System.Web.UI.WebControls
+@model IEnumerable<ProyectoBitacorasCientificas.Models.Bitacora>
+
+<h2>BitacoraCientificas</h2>
+<form class="form-horizontal">
+    <div class="form-group">
+        <div class="col-xs-8">
+
+            @if (Model != null)
+            {
+                if (!Model.Any())
+                {
+                    <p>No tenemos Bitacoras</p>
+                }
+                else
+                {
+
+                    <!--Table-->
+                    <table id="tablePreview" class="table">
+                        <!--Table head-->
+                        <thead>
+                            <tr>
+                                <th>Codigo</th>
+                                <th>Nombre</th>
+                                <th>Fecha</th>
+                                <th>Proyecto</th>
+                                <th>Precio</th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var bitacoras in Model)
+                            {
+                                <tr>
+                                    <td>@bitacoras.id</td>
+                                    <td>@bitacoras.nombreExperimento</td>
+                                    <td>@bitacoras.Fecha</td>
+                                    <td>@bitacoras.precio</td>
+                                    <td>@bitacoras.Proyectos.nombre</td>
+                                    <td>@Html.ActionLink("Comprar", "BitacoraCientificaDetail", "Administracion", new { id = bitacoras.id }, null)</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                }
+
+            }
+
+        </div>
+    </div>
+</form>

@@ -12,5 +12,5 @@ namespace ProyectoBitacorasCientificas.Models
         public string nombre { get; set; }
         public RamaCientifica RamaCientifica { get; set; }
         public int RamaCientificaId { get; set; }
-    }
+        }
 }

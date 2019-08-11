@@ -373,6 +373,10 @@
     <Compile Include="Migrations\201908070253459_noIdeaWhatNow.Designer.cs">
       <DependentUpon>201908070253459_noIdeaWhatNow.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201908110148449_addPrecioToBitacoras.cs" />
+    <Compile Include="Migrations\201908110148449_addPrecioToBitacoras.Designer.cs">
+      <DependentUpon>201908110148449_addPrecioToBitacoras.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Bitacora.cs" />
@@ -502,6 +506,11 @@
     <Content Include="Views\Seguridad\RolesLaboratorios.cshtml" />
     <Content Include="Views\Seguridad\RolesLaboratorioForm.cshtml" />
     <Content Include="Views\Client\Index.cshtml" />
+    <Content Include="Views\Administracion\RamaCientificaDetail.cshtml" />
+    <Content Include="Views\Administracion\SelectRamaCientifica.cshtml" />
+    <Content Include="Views\Administracion\_Experimentos.cshtml" />
+    <Content Include="Views\Administracion\BitacoraCientificaDetail.cshtml" />
+    <Content Include="Views\Administracion\Experimentos.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -657,6 +666,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201908070253459_noIdeaWhatNow.resx">
       <DependentUpon>201908070253459_noIdeaWhatNow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908110148449_addPrecioToBitacoras.resx">
+      <DependentUpon>201908110148449_addPrecioToBitacoras.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Lang.en.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

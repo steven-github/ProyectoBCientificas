@@ -28,8 +28,8 @@
                         <th>Codigo</th>
                         <th>Nombre</th>
                         <th>Fecha</th>
+                        <th>Precio</th>
                         <th>Proyecto</th>
-                        <th>Usuario Creador</th>
                         <th></th>
                         <th></th>
                     </tr>
@@ -41,6 +41,7 @@
                             <td>@bitacoras.id</td>
                             <td>@bitacoras.nombreExperimento</td>
                             <td>@bitacoras.Fecha</td>
+                            <td>@bitacoras.precio</td>
                             <td>@bitacoras.Proyectos.nombre</td>
                             @*<td>@bitacoras.ApplicationUser.Email</td>*@
                             <td>@Html.ActionLink("Editar", "BitacorasCientificasEditar", "Administracion", new {id = bitacoras.id}, null)</td>
