@@ -420,6 +420,7 @@
     <Compile Include="ViewModels\ProyectoRamaCientificaForm.cs" />
     <Compile Include="ViewModels\RamaCientificaForm.cs" />
     <Compile Include="ViewModels\RolesLaboratorioForm.cs" />
+    <Compile Include="ViewModels\SelectBitacoras.cs" />
     <Compile Include="ViewModels\UserRoleViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -511,6 +512,7 @@
     <Content Include="Views\Administracion\_Experimentos.cshtml" />
     <Content Include="Views\Administracion\BitacoraCientificaDetail.cshtml" />
     <Content Include="Views\Administracion\Experimentos.cshtml" />
+    <Content Include="Views\Administracion\BitacorasList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

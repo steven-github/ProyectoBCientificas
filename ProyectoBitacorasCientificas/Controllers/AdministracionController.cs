@@ -310,6 +310,19 @@ namespace ProyectoBitacorasCientificas.Controllers
             return View("BitacorasCientificasForm", viewModel);
         }
 
+        // Custom ActionResult to just show the list of Bitacoras 
+        public ActionResult BitacorasList()
+        {
+            var bitacorasList = _context.Bitacoras.ToList();
+
+            var viewModel = new SelectBitacoras
+            {
+                Bitacoras = bitacorasList
+            };
+
+            return View("BitacorasList",viewModel); 
+        }
+
         [Authorize(Roles = RoleName.CanManageAdministration + "," + RoleName.CanManageMantenimiento)]
         public ActionResult BitacorasCrearEditar(Bitacora bitacora)
         {
@@ -396,6 +409,7 @@ namespace ProyectoBitacorasCientificas.Controllers
 
         }
 
+        [HttpPost]
         public ActionResult BitacoraCientificaDetail(int id)
         {
             var bitacora = _context.Bitacoras

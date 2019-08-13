@@ -1,0 +1,32 @@
+﻿@using System.Web.Mvc.Html
+@model ProyectoBitacorasCientificas.ViewModels.SelectBitacoras
+
+@{
+    ViewBag.Title = "BitacorasList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>BitacorasList</h2>
+@using (Html.BeginForm("BitacoraCientificaDetail", "Administracion"))
+{
+<form class="form-horizontal">
+    <div class="form-group">
+        @Html.LabelFor(m => m.Bitacora.nombreExperimento)
+        @Html.DropDownListFor(m => m.Bitacora.nombreExperimento,
+            new SelectList(
+                Model.Bitacoras,
+                "id",
+                "nombreExperimento"),
+            "Seleccione la bitacora",
+            new { @class = "form-control" })
+    </div>
+    @Html.HiddenFor(m => m.Bitacora.id)
+    <script>
+        
+        var selectedValue = parseInt($('#Bitacora_nombreExperimento option:selected').val());  
+
+    </script>
+    <td>@*@Html.ActionLink("Select", "BitacoraCientificaDetail", "Administracion", new { id = 1002 }, new { @class = " btn btn-primary" })*@</td>
+    
+</form>
+} 
