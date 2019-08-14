@@ -409,7 +409,6 @@ namespace ProyectoBitacorasCientificas.Controllers
 
         }
 
-        [HttpPost]
         public ActionResult BitacoraCientificaDetail(int id)
         {
             var bitacora = _context.Bitacoras
