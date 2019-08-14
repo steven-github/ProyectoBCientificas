@@ -17,16 +17,20 @@
                 Model.Bitacoras,
                 "id",
                 "nombreExperimento"),
-            "Seleccione la bitacora",
             new { @class = "form-control" })
     </div>
-    @Html.HiddenFor(m => m.Bitacora.id)
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
     <script>
-        
-        var selectedValue = parseInt($('#Bitacora_nombreExperimento option:selected').val());  
+        $(function () {
+            $("#submit").click(function () {
+                var href = $(this).attr("href");
+                var selectedValue = parseInt($('#Bitacora_nombreExperimento option:selected').val());
+                var route = href + "?id=" + selectedValue;
+                $(this).attr("href", route);
+            });
+        });
 
     </script>
-    <td>@*@Html.ActionLink("Select", "BitacoraCientificaDetail", "Administracion", new { id = 1002 }, new { @class = " btn btn-primary" })*@</td>
-    
+    <a id="submit" class="btn btn-default" href="@Url.Action("BitacoraCientificaDetail", "Administracion")">Seleccionar este experimento</a>
 </form>
 } 
