@@ -7,13 +7,13 @@ namespace ProyectoBitacorasCientificas.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class InsertIntoBitacoras : IMigrationMetadata
+    public sealed partial class addBitacoraFKToFactura : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(InsertIntoBitacoras));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(addBitacoraFKToFactura));
         
         string IMigrationMetadata.Id
         {
-            get { return "201907162144528_InsertIntoBitacoras"; }
+            get { return "201908152314554_addBitacoraFKToFactura"; }
         }
         
         string IMigrationMetadata.Source
