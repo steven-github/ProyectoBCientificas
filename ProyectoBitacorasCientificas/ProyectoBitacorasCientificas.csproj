@@ -237,10 +237,6 @@
     <Compile Include="Migrations\201907162131170_addDataToBitacora.Designer.cs">
       <DependentUpon>201907162131170_addDataToBitacora.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201907162144528_InsertIntoBitacoras.cs" />
-    <Compile Include="Migrations\201907162144528_InsertIntoBitacoras.Designer.cs">
-      <DependentUpon>201907162144528_InsertIntoBitacoras.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\201907172018297_AddBitacorasAgain1.cs" />
     <Compile Include="Migrations\201907172018297_AddBitacorasAgain1.Designer.cs">
       <DependentUpon>201907172018297_AddBitacorasAgain1.cs</DependentUpon>
@@ -376,6 +372,10 @@
     <Compile Include="Migrations\201908110148449_addPrecioToBitacoras.cs" />
     <Compile Include="Migrations\201908110148449_addPrecioToBitacoras.Designer.cs">
       <DependentUpon>201908110148449_addPrecioToBitacoras.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908152314554_addBitacoraFKToFactura.cs" />
+    <Compile Include="Migrations\201908152314554_addBitacoraFKToFactura.Designer.cs">
+      <DependentUpon>201908152314554_addBitacoraFKToFactura.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -567,9 +567,6 @@
     <EmbeddedResource Include="Migrations\201907162131170_addDataToBitacora.resx">
       <DependentUpon>201907162131170_addDataToBitacora.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201907162144528_InsertIntoBitacoras.resx">
-      <DependentUpon>201907162144528_InsertIntoBitacoras.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201907172018297_AddBitacorasAgain1.resx">
       <DependentUpon>201907172018297_AddBitacorasAgain1.cs</DependentUpon>
     </EmbeddedResource>
@@ -671,6 +668,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201908110148449_addPrecioToBitacoras.resx">
       <DependentUpon>201908110148449_addPrecioToBitacoras.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908152314554_addBitacoraFKToFactura.resx">
+      <DependentUpon>201908152314554_addBitacoraFKToFactura.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Lang.en.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

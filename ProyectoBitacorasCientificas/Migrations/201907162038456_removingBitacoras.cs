@@ -23,9 +23,9 @@ namespace ProyectoBitacorasCientificas.Migrations
             CreateIndex("dbo.Bitacora", "Proyectos_id");
             AddForeignKey("dbo.Bitacora", "Proyectos_id", "dbo.Proyectos", "id");
 
-            DropForeignKey("dbo.Bitacora", "Proyectos_id", "dbo.Proyectos");
-            DropIndex("dbo.Bitacora", new[] { "Proyectos_id" });
-            DropTable("dbo.Bitacora");
+            //DropForeignKey("dbo.Bitacora", "Proyectos_id", "dbo.Proyectos");
+            //DropIndex("dbo.Bitacora", new[] { "Proyectos_id" });
+            //DropTable("dbo.Bitacora");
         }
         
         public override void Down()
