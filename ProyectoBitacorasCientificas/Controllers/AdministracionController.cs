@@ -314,10 +314,14 @@ namespace ProyectoBitacorasCientificas.Controllers
         public ActionResult BitacorasList()
         {
             var bitacorasList = _context.Bitacoras.ToList();
+            var proyectosList = _context.Proyectos.ToList();
+            var usersList = _context.Users.ToList();
 
             var viewModel = new SelectBitacoras
             {
-                Bitacoras = bitacorasList
+                Bitacoras = bitacorasList,
+                Proyectos = proyectosList,
+                Users = usersList
             };
 
             return View("BitacorasList",viewModel); 
@@ -408,6 +412,30 @@ namespace ProyectoBitacorasCientificas.Controllers
             }
 
         }
+
+        #region CustomFilters
+
+        public ActionResult Bitacoras_Proyectos(int id)
+        {
+            var bitacorasRelatedList = _context.Bitacoras
+                .Where(c => c.Proyectos.id == id)
+                .Include(c => c.Proyectos)
+                .Include(c => c.ApplicationUser)
+                .ToList();
+            return View("_Experimentos", bitacorasRelatedList);
+        }
+
+        public ActionResult Bitacoras_Users(string id)
+        {
+            var bitacorasRelatedList = _context.Bitacoras
+                .Where(c => c.ApplicationUser.Id == id)
+                .Include(c => c.Proyectos)
+                .Include(c => c.ApplicationUser)
+                .ToList();
+            return View("_Experimentos", bitacorasRelatedList);
+        }
+
+        #endregion
 
         public ActionResult BitacoraCientificaDetail(int id)
         {

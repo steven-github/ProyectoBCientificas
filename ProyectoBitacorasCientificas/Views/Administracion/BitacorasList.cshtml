@@ -18,11 +18,32 @@
                 "id",
                 "nombreExperimento"),
             new { @class = "form-control" })
+        <a id="selectExperimento" class="btn btn-default" href="@Url.Action("BitacoraCientificaDetail", "Administracion")">Seleccionar este experimento</a>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Bitacora.ProyectosId)
+        @Html.DropDownListFor(m => m.Bitacora.ProyectosId,
+            new SelectList(
+                Model.Proyectos,
+                "id",
+                "nombre"),
+            new { @class = "form-control" })
+        <a id="selectProyecto" class="btn btn-default" href="@Url.Action("Bitacoras_Proyectos", "Administracion")">Filtrar por este proyecto</a>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Bitacora.ApplicationUserId)
+        @Html.DropDownListFor(m => m.Bitacora.ApplicationUserId,
+            new SelectList(
+                Model.Users,
+                "Id",
+                "Email"),
+            new { @class = "form-control" })
+        <a id="selectUser" class="btn btn-default" href="@Url.Action("Bitacoras_Proyectos", "Administracion")">Filtrar por este usuario</a>
     </div>
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
     <script>
         $(function () {
-            $("#submit").click(function () {
+            $("#selectExperimento").click(function () {
                 var href = $(this).attr("href");
                 var selectedValue = parseInt($('#Bitacora_nombreExperimento option:selected').val());
                 var route = href + "?id=" + selectedValue;
@@ -30,7 +51,26 @@
             });
         });
 
+        $(function () {
+            $("#selectProyecto").click(function () {
+                var href = $(this).attr("href");
+                var selectedValue = parseInt($('#Bitacora_ProyectosId option:selected').val());
+                var route = href + "?id=" + selectedValue;
+                $(this).attr("href", route);
+            });
+        });
+
+        $(function () {
+            $("#selectUser").click(function () {
+                var href = $(this).attr("href");
+                var selectedValue = $('#Bitacora_ApplicationUserId option:selected');
+                var route = href + "?id=" + selectedValue;
+                $(this).attr("href", route);
+            });
+        });
+
     </script>
-    <a id="submit" class="btn btn-default" href="@Url.Action("BitacoraCientificaDetail", "Administracion")">Seleccionar este experimento</a>
+
+
 </form>
 } 
