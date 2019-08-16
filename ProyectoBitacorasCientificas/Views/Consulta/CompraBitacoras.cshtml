@@ -1,0 +1,59 @@
+﻿@model IEnumerable<ProyectoBitacorasCientificas.Models.Bitacora>
+
+@{
+    ViewBag.Title = "CompraBitacoras";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Compra Bitacoras</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.prefijo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nombreExperimento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fecha)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.precio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProyectosId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ApplicationUserId)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.prefijo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombreExperimento)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fecha)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.precio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProyectosId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ApplicationUserId)
+        </td>
+        <td>
+            @Html.ActionLink("Comprar", "PaymentWithPaypal", "Consulta", new { Id = item.id }, null)
+        </td>
+    </tr>
+}
+
+</table>

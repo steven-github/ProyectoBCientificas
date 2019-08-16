@@ -46,6 +46,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PayPal, Version=1.9.1.0, Culture=neutral, PublicKeyToken=5b4afc1ccaef40fb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PayPal.1.9.1\lib\net451\PayPal.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -171,6 +174,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\PayPalConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -513,6 +517,10 @@
     <Content Include="Views\Administracion\BitacoraCientificaDetail.cshtml" />
     <Content Include="Views\Administracion\Experimentos.cshtml" />
     <Content Include="Views\Administracion\BitacorasList.cshtml" />
+    <Content Include="Views\Consulta\FailureView.cshtml" />
+    <Content Include="Views\Consulta\SuccessView.cshtml" />
+    <Content Include="Views\Consulta\CompraBitacoras.cshtml" />
+    <Content Include="Views\Consulta\CancelView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
