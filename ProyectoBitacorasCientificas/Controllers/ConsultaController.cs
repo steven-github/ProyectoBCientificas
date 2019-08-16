@@ -254,10 +254,10 @@ namespace ProyectoBitacorasCientificas.Controllers
             transactionList.Add(new Transaction()
             {
                 description = String.Format("Proyecto Bitacora, compra de bitacora {0}", bitacorComprada.nombreExperimento),
-                invoice_number = nuevaFactura.id.ToString(), //Generate an Invoice No  
+                invoice_number = Guid.NewGuid().ToString(), //nuevaFactura.id.ToString(), //Generate an Invoice No  
                 amount = amount,
                 item_list = itemList
-            });
+            }); ;
             this.payment = new Payment()
             {
                 intent = "sale",
