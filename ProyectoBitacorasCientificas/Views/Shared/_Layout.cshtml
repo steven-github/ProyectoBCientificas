@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using ProyectoBitacorasCientificas.Models
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -24,10 +25,12 @@
                     @*<li>@Html.ActionLink("Home", "Index", "Home")</li>
         <li>@Html.ActionLink("About", "About", "Home")</li>
         <li>@Html.ActionLink("Contact", "Contact", "Home")</li>*@
+                @if (User.IsInRole(RoleName.CanManageAdministration))
+                {
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">@ProyectoBitacorasCientificas.Resources.Lang.Seguridad<span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li>@Html.ActionLink("Crear Usuario", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+                            <li>@Html.ActionLink("Crear Usuario", "Register", "Account", routeValues: null, htmlAttributes: new {id = "registerLink"})</li>
                             <li><a href="#">@Html.ActionLink(ProyectoBitacorasCientificas.Resources.Lang.RolesUsuario, "RolesUsuario", "Seguridad")</a></li>
                             <li><a href="#">@Html.ActionLink("Roles Laboratorio", "RolesLaboratorioCrear", "Seguridad")</a></li>
                             <li role="separator" class="divider"></li>
@@ -55,6 +58,7 @@
                             <li><a href="#">@Html.ActionLink(ProyectoBitacorasCientificas.Resources.Lang.Descargas, "Descargas", "Consulta")</a></li>
                         </ul>
                     </li>
+                }
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">@ProyectoBitacorasCientificas.Resources.Lang.Idiomas<span class="caret"></span></a>
                         <ul class="dropdown-menu">
@@ -62,7 +66,10 @@
                             <li><a href="#">@Html.ActionLink("English", "Change", "Language", new { LanguageAbbreviation = "en" }, null)</a></li>
                         </ul>
                     </li>
-                    <li>@Html.ActionLink("Cliente", "Experimentos", "Administracion")</li>
+                    @if (!User.IsInRole(RoleName.CanManageAdministration))
+                    {
+                        <li>@Html.ActionLink("Cliente", "BitacorasList", "Administracion")</li>
+                    }
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>

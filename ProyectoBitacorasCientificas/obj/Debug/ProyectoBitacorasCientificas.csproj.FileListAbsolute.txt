@@ -552,3 +552,6 @@ C:\Users\jmendez\source\GitHub\ProyectoBCientificas\ProyectoBitacorasCientificas
 C:\Users\jmendez\source\GitHub\ProyectoBCientificas\ProyectoBitacorasCientificas\obj\Debug\ProyectoBitacorasCientificas.dll
 C:\Users\jmendez\source\GitHub\ProyectoBCientificas\ProyectoBitacorasCientificas\obj\Debug\ProyectoBitacorasCientificas.pdb
 C:\Users\jmendez\source\GitHub\ProyectoBCientificas\ProyectoBitacorasCientificas\obj\Debug\ProyectoBitacorasCientificas.Migrations.Updates.resources
+C:\ProyectoBCientificas\ProyectoBitacorasCientificas\bin\PayPal.dll
+C:\ProyectoBCientificas\ProyectoBitacorasCientificas\bin\PayPal.xml
+C:\ProyectoBCientificas\ProyectoBitacorasCientificas\obj\Debug\ProyectoBitacorasCientificas.Migrations.Updates.resources
