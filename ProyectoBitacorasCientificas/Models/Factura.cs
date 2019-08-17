@@ -14,5 +14,6 @@ namespace ProyectoBitacorasCientificas.Models
         public Bitacora Bitacora { get; set; }
         public int BitacoraId { get; set; }
 
+        public string IdPaypal { get; set; }
     }
 }

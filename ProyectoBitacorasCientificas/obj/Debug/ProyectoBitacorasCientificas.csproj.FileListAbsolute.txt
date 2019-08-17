@@ -551,3 +551,4 @@ C:\Users\jmendez\source\GitHub\ProyectoBCientificas\ProyectoBitacorasCientificas
 C:\Users\jmendez\source\GitHub\ProyectoBCientificas\ProyectoBitacorasCientificas\obj\Debug\ProyectoBitacorasCientificas.csproj.CopyComplete
 C:\Users\jmendez\source\GitHub\ProyectoBCientificas\ProyectoBitacorasCientificas\obj\Debug\ProyectoBitacorasCientificas.dll
 C:\Users\jmendez\source\GitHub\ProyectoBCientificas\ProyectoBitacorasCientificas\obj\Debug\ProyectoBitacorasCientificas.pdb
+C:\Users\jmendez\source\GitHub\ProyectoBCientificas\ProyectoBitacorasCientificas\obj\Debug\ProyectoBitacorasCientificas.Migrations.Updates.resources

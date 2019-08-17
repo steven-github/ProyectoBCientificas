@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using ProyectoBitacorasCientificas.Models;
 using PayPal.Api;
 using ProyectoBitacorasCientificas.App_Start;
+using ProyectoBitacorasCientificas.ViewModels;
 
 namespace ProyectoBitacorasCientificas.Controllers
 {
@@ -152,6 +153,29 @@ namespace ProyectoBitacorasCientificas.Controllers
                     {
                         return View("FailureView");
                     }
+                    else
+                    {
+
+                        Bitacora bitacorComprada = (from bitItem in _context.Bitacoras
+                                                    where bitItem.id == id
+                                                    select bitItem).FirstOrDefault();
+
+                        Factura nuevaFactura = new Factura
+                        {
+                            BitacoraId = bitacorComprada.id,
+                            monto = double.Parse(bitacorComprada.precio),
+                            fechaEmision = DateTime.Now,
+                            IdPaypal = executedPayment.transactions[0].invoice_number
+                        };
+
+                        _context.Facturas.Add(nuevaFactura);
+
+                        _context.SaveChanges();
+
+                        CompraCompletadaViewModel compraFinal = new CompraCompletadaViewModel() { BitacoraComprada = bitacorComprada, FacturaFinal = nuevaFactura };
+                        //on successful payment, show success page to user.
+                        return View("SuccessView", compraFinal);
+                    }
                 }
             }
             catch (Exception ex)
@@ -159,10 +183,6 @@ namespace ProyectoBitacorasCientificas.Controllers
                 return View("FailureView");
             }
 
-            
-
-            //on successful payment, show success page to user.  
-            return View("SuccessView");
         }
 
 
@@ -196,20 +216,9 @@ namespace ProyectoBitacorasCientificas.Controllers
         /// <returns>Pago construido con datos desde la DB</returns>
         private Payment CreatePayment(int productId, APIContext apiContext, string redirectUrl)
         {
-            Bitacora bitacorComprada = (from bitItem in _context.Bitacoras
+            Bitacora bitacoraAComprar = (from bitItem in _context.Bitacoras
                                        where bitItem.id == productId
                                        select bitItem).FirstOrDefault();
-
-            
-            Factura nuevaFactura = new Factura {
-                BitacoraId = bitacorComprada.id,
-                monto = double.Parse(bitacorComprada.precio),
-                fechaEmision = DateTime.Now
-            };
-
-            _context.Facturas.Add(nuevaFactura);
-
-            _context.SaveChanges();
 
             //create itemlist and add item objects to it  
             var itemList = new ItemList()
@@ -219,11 +228,11 @@ namespace ProyectoBitacorasCientificas.Controllers
             //Adding Item Details like name, currency, price etc  
             itemList.items.Add(new Item()
             {
-                name = bitacorComprada.nombreExperimento,
+                name = bitacoraAComprar.nombreExperimento,
                 currency = "USD",
-                price = nuevaFactura.monto.ToString(), 
+                price = bitacoraAComprar.precio, 
                 quantity = "1",
-                sku = bitacorComprada.id.ToString()
+                sku = bitacoraAComprar.id.ToString()
             });
             var payer = new Payer()
             {
@@ -240,20 +249,20 @@ namespace ProyectoBitacorasCientificas.Controllers
             {
                 tax = "0",
                 shipping = "0",
-                subtotal = nuevaFactura.monto.ToString()
+                subtotal = bitacoraAComprar.precio
             };
             //Final amount with details  
             var amount = new Amount()
             {
                 currency = "USD",
-                total = nuevaFactura.monto.ToString(), // Total must be equal to sum of tax, shipping and subtotal.  
+                total = bitacoraAComprar.precio, // Total must be equal to sum of tax, shipping and subtotal.  
                 details = details
             };
             var transactionList = new List<Transaction>();
             // Adding description about the transaction  
             transactionList.Add(new Transaction()
             {
-                description = String.Format("Proyecto Bitacora, compra de bitacora {0}", bitacorComprada.nombreExperimento),
+                description = String.Format("Proyecto Bitacora, compra de bitacora {0}", bitacoraAComprar.nombreExperimento),
                 invoice_number = Guid.NewGuid().ToString(), //nuevaFactura.id.ToString(), //Generate an Invoice No  
                 amount = amount,
                 item_list = itemList

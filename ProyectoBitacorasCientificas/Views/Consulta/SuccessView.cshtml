@@ -1,8 +1,78 @@
-﻿
+﻿@model ProyectoBitacorasCientificas.ViewModels.CompraCompletadaViewModel
+
 @{
     ViewBag.Title = "SuccessView";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>La compra se ha realizado con &eacute;xito!</h2>
+<h2>Compra de bit&aacute;cora finalizada con &eacute;xito</h2>
 
+<div>
+    <h4>Factura</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FacturaFinal.fechaEmision)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FacturaFinal.fechaEmision)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FacturaFinal.monto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FacturaFinal.monto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FacturaFinal.BitacoraId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FacturaFinal.BitacoraId)
+        </dd>
+
+    </dl>
+</div>
+
+<div>
+    <h4>Bitacora Comprada</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.BitacoraComprada.prefijo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BitacoraComprada.prefijo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BitacoraComprada.nombreExperimento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BitacoraComprada.nombreExperimento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BitacoraComprada.Fecha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BitacoraComprada.Fecha)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BitacoraComprada.precio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BitacoraComprada.precio)
+        </dd>
+
+    </dl>
+</div>
