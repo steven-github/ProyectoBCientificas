@@ -38,7 +38,7 @@
                                     <td>@bitacoras.Fecha</td>
                                     <td>@bitacoras.precio</td>
                                     <td>@bitacoras.Proyectos.nombre</td>
-                                    <td>@Html.ActionLink("Comprar", "BitacoraCientificaDetail", "Administracion", new { id = bitacoras.id }, null)</td>
+                                    <td>@Html.ActionLink("Comprar", "PaymentWithPaypal", "Consulta", new { Id = bitacoras.id }, null)</td>
                                 </tr>
                             }
                         </tbody>

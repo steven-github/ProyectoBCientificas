@@ -19,14 +19,7 @@ namespace ProyectoBitacorasCientificas.Controllers
         // GET: Client
         public ActionResult Index()
         {
-            if (User.IsInRole(RoleName.CanManageClientSide))
-            {
-                return View(); 
-            }
-            else
-            {
-                return View("RestrictedAccess"); 
-            }
+            return View();
         }
 
         //public ActionResult SelectedRamaCientifica(int id)
